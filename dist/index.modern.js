@@ -147,5 +147,5 @@ var Input = forwardRef(function (_ref, ref) {
   }, icon) : null, error && errorMsg && /*#__PURE__*/React.createElement(FloatingMessage, null, "* ", errorMsg));
 });
 
-export { Button };
+export { Button, Input };
 //# sourceMappingURL=index.modern.js.map

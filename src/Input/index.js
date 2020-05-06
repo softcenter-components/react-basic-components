@@ -2,7 +2,7 @@ import React, { forwardRef, useState, createRef } from 'react'
 
 import { InputBody, FloatingMessage } from './style'
 
-const Input = forwardRef(
+export const Input = forwardRef(
   (
     {
       className,
@@ -63,5 +63,3 @@ const Input = forwardRef(
     )
   }
 )
-
-export default Input

@@ -151,4 +151,5 @@ var Input = React.forwardRef(function (_ref, ref) {
 });
 
 exports.Button = Button;
+exports.Input = Input;
 //# sourceMappingURL=index.js.map
