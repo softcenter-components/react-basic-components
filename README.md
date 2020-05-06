@@ -7,7 +7,7 @@
 ## Install
 
 ```bash
-npm install --save react-basic-components
+yarn add @softcenter/react-basic-components
 ```
 
 ## Usage
