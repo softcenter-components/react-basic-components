@@ -65,7 +65,7 @@ var Button = function Button(_ref) {
 };
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: 54px;\n  border: 1px solid #acacac;\n  padding: 2px;\n  border-radius: 10px;\n  cursor: text;\n  &.contains-searchbox,\n  &.error {\n    position: relative;\n  }\n  background: white;\n  display: grid;\n  ", "\n\n  ", "\n\n  svg {\n    width: 50%;\n    height: auto;\n    ", "\n    place-self: center center;\n  }\n\n  .icon-container {\n    display: grid;\n    width: 100%;\n    place-self: center;\n    place-content: center;\n  }\n\n  &.hoverable .icon-container {\n    cursor: pointer;\n  }\n\n  &.error {\n    margin-bottom: 20px;\n    border-width: 2px;\n    border-color: #bc0000;\n    svg {\n      fill: #bc0000;\n    }\n  }\n\n  input {\n    height: 100%;\n    width: 100%;\n    padding: 0px 15px;\n    outline: none;\n    border: none;\n    font-size: 16px;\n    color: #464646;\n    font-family: Montserrat;\n    background: white;\n    border-radius: 10px;\n    &::placeholder {\n      font-weight: 500;\n      font-family: Montserrat;\n      color: #959595;\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: 54px;\n  border: 1px solid #acacac;\n  padding: 2px;\n  border-radius: 10px;\n  font-family: Montserrat;\n  cursor: text;\n  &.contains-searchbox,\n  &.error {\n    position: relative;\n  }\n  background: white;\n  display: grid;\n  ", "\n\n  ", "\n\n  svg {\n    width: 50%;\n    height: auto;\n    ", "\n    place-self: center center;\n  }\n\n  .icon-container {\n    display: grid;\n    width: 100%;\n    place-self: center;\n    place-content: center;\n  }\n\n  &.hoverable .icon-container {\n    cursor: pointer;\n  }\n\n  &.error {\n    margin-bottom: 20px;\n    border-width: 2px;\n    border-color: #bc0000;\n    svg {\n      fill: #bc0000;\n    }\n  }\n\n  input {\n    height: 100%;\n    width: 100%;\n    padding: 0px 15px;\n    outline: none;\n    border: none;\n    font-size: 16px;\n    color: #464646;\n    font-family: Montserrat;\n    background: white;\n    border-radius: 10px;\n    &::placeholder {\n      font-weight: 500;\n      font-family: Montserrat;\n      color: #959595;\n    }\n  }\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -75,7 +75,7 @@ function _templateObject2() {
 }
 
 function _templateObject$1() {
-  var data = _taggedTemplateLiteralLoose(["\n  background: transparent;\n  width: 100%;\n  height: 20px;\n  bottom: -25px;\n  font-size: 14px;\n  font-weight: 500;\n  color: #bc0000;\n  position: absolute;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  background: transparent;\n  width: 100%;\n  height: 20px;\n  bottom: -25px;\n  font-family: Montserrat;\n  font-size: 14px;\n  font-weight: 500;\n  color: #bc0000;\n  position: absolute;\n"]);
 
   _templateObject$1 = function _templateObject() {
     return data;
@@ -168,7 +168,7 @@ function _templateObject2$1() {
 }
 
 function _templateObject$2() {
-  var data = _taggedTemplateLiteralLoose(["\n  position: absolute;\n  background: white;\n  padding: 35px;\n  border-radius: 10px;\n  width: 580px;\n  height: 340px;\n  place-self: center center;\n  display: grid;\n\n  > .close-button {\n    width: 24px;\n    position: absolute;\n    right: 20px;\n    top: 20px;\n    z-index: 10;\n    &:hover {\n      width: 25px;\n      cursor: pointer;\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  position: absolute;\n  background: white;\n  padding: 35px;\n  border-radius: 10px;\n  width: 580px;\n  height: 340px;\n  place-self: center center;\n  display: grid;\n  font-family: Montserrat;\n\n  > .close-button {\n    width: 24px;\n    position: absolute;\n    right: 20px;\n    top: 20px;\n    z-index: 10;\n    &:hover {\n      width: 25px;\n      cursor: pointer;\n    }\n  }\n"]);
 
   _templateObject$2 = function _templateObject() {
     return data;
