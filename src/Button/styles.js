@@ -8,7 +8,8 @@ export const StyledButton = styled.button`
   font-size: 15px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
-  border: solid 10px #0072bc;
+  border-radius: 10px;
+  border: 1px solid #0072bc;
 
   &:hover {
     cursor: pointer;
@@ -16,6 +17,6 @@ export const StyledButton = styled.button`
 
   &:active {
     background: #0009;
-    border: solid 10px #0009;
+    border: 1px solid #0009;
   }
 `
