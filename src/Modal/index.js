@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Close } from '../../assets/icons'
+import { Close } from '../assets/icons'
 import { StyledBackground, ModalBody } from './style'
 
 export const Modal = ({
