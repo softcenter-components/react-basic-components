@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const StyledButton = styled.button`
   color: #fff;
@@ -8,11 +8,14 @@ export const StyledButton = styled.button`
   font-size: 15px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
-  border-radius: 10px;
-  :hover {
-    cursor: pointer;  
+  border: solid 10px #0072bc;
+
+  &:hover {
+    cursor: pointer;
   }
-  :active {
+
+  &:active {
     background: #0009;
+    border: solid 10px #0009;
   }
-`;
+`
