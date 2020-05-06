@@ -10,6 +10,7 @@ export const StyledButton = styled.button`
   font-weight: 600;
   border-radius: 10px;
   border: 1px solid #0072bc;
+  outline: none;
 
   &:hover {
     cursor: pointer;

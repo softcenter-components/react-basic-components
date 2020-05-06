@@ -2,10 +2,10 @@ import React from 'react'
 
 import { StyledButton } from './styles'
 
-export const Button = ({ text, ...props }) => {
+export const Button = ({ children, className, ...props }) => {
   return (
-    <StyledButton onPress={() => false} {...props}>
-      {text}
+    <StyledButton className={className} {...props}>
+      {children}
     </StyledButton>
   )
 }
