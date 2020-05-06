@@ -1,2 +1,3 @@
-export * from './Button'
-export * from './Input'
+import { Button } from './Button'
+
+export { Button }

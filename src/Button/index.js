@@ -1,10 +1,7 @@
 import React from 'react'
-import styled from 'styled-components'
 
-const StyledButton = styled.button`
-  color: red;
-`
+import { StyledButton } from './styles'
 
 export const Button = ({ text }) => {
-  return <StyledButton>{text}</StyledButton>
+  return <StyledButton onPress={() => false}>{text}</StyledButton>
 }

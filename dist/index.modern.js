@@ -1,39 +1,6 @@
 import React, { forwardRef, createRef, useState } from 'react';
 import styled from 'styled-components';
 
-function _extends() {
-  _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-
-    return target;
-  };
-
-  return _extends.apply(this, arguments);
-}
-
-function _objectWithoutPropertiesLoose(source, excluded) {
-  if (source == null) return {};
-  var target = {};
-  var sourceKeys = Object.keys(source);
-  var key, i;
-
-  for (i = 0; i < sourceKeys.length; i++) {
-    key = sourceKeys[i];
-    if (excluded.indexOf(key) >= 0) continue;
-    target[key] = source[key];
-  }
-
-  return target;
-}
-
 function _taggedTemplateLiteralLoose(strings, raw) {
   if (!raw) {
     raw = strings.slice(0);
@@ -44,7 +11,7 @@ function _taggedTemplateLiteralLoose(strings, raw) {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteralLoose(["\n  color: red;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  color: #fff;\n  background: #0072bc;\n  width: 165px;\n  height: 45px;\n  font-size: 15px;\n  font-family: 'Montserrat', sans-serif;\n  font-weight: 600;\n  border-radius: 10px;\n  :hover {\n    cursor: pointer;  \n  }\n  :active {\n    background: #0009;\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -53,9 +20,14 @@ function _templateObject() {
   return data;
 }
 var StyledButton = styled.button(_templateObject());
+
 var Button = function Button(_ref) {
   var text = _ref.text;
-  return /*#__PURE__*/React.createElement(StyledButton, null, text);
+  return /*#__PURE__*/React.createElement(StyledButton, {
+    onPress: function onPress() {
+      return false;
+    }
+  }, text);
 };
 
 function _templateObject2() {

@@ -1,10 +1,13 @@
 {
-  "name": "react-basic-components",
-  "version": "1.0.0",
-  "description": "Basic components for a softcenter projects!",
+  "name": "@softcenter/react-basic-components",
+  "version": "0.1.0",
+  "description": "Basic components for Softcenter projects!",
   "author": "softcenter",
   "license": "MIT",
-  "repository": "softcenter/react-basic-components",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/softcenter-components/react-basic-components.git"
+  },
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.js",
@@ -15,7 +18,7 @@
     "build": "microbundle-crl --no-compress --format modern,cjs",
     "start": "microbundle-crl watch --no-compress --format modern,cjs",
     "prepublish": "run-s build",
-    "test": "run-s test:unit test:lint test:build",
+    "test": "run-s test:unit test:build",
     "test:build": "run-s build",
     "test:lint": "eslint .",
     "test:unit": "cross-env CI=1 react-scripts test --env=jsdom",
@@ -52,5 +55,12 @@
   ],
   "dependencies": {
     "styled-components": "^5.1.0"
+  },
+  "bugs": {
+    "url": "https://github.com/softcenter-components/react-basic-components/issues"
+  },
+  "homepage": "https://github.com/softcenter-components/react-basic-components#readme",
+  "directories": {
+    "example": "example"
   }
 }
