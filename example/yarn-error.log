@@ -1,20 +1,20 @@
 Arguments: 
-  /Users/renatoalvessouza/.nvm/versions/node/v12.14.1/bin/node /usr/local/Cellar/yarn/1.21.1/libexec/bin/yarn.js install
+  /usr/bin/node /usr/share/yarn/bin/yarn.js
 
 PATH: 
-  /Users/renatoalvessouza/.npm/_npx/24383/bin:/Users/renatoalvessouza/node_modules/.bin:/Users/renatoalvessouza/.nvm/versions/node/v12.14.1/bin:/Users/renatoalvessouza/.zplugin/polaris/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/renatoalvessouza/Library/Android/sdk/emulator:/Users/renatoalvessouza/Library/Android/sdk/tools:/Users/renatoalvessouza/Library/Android/sdk/tools/bin:/Users/renatoalvessouza/Library/Android/sdk/platform-tools
+  /home/misael/.config/depot_tools/:/home/misael/.sdkman/candidates/gradle/current/bin:/home/misael/.config/depot_tools/:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/misael/Android/Sdk/emulator:/home/misael/Android/Sdk/tools:/home/misael/Android/Sdk/tools/bin:/home/misael/Android/Sdk/platform-tools:/home/misael/Android/Sdk/emulator:/home/misael/Android/Sdk/tools:/home/misael/Android/Sdk/tools/bin:/home/misael/Android/Sdk/platform-tools
 
 Yarn version: 
-  1.21.1
+  1.22.4
 
 Node version: 
-  12.14.1
+  12.16.2
 
 Platform: 
-  darwin x64
+  linux x64
 
 Trace: 
-  Error: ENOENT: no such file or directory, lstat '/Users/renatoalvessouza/Desktop/Packages/softcenter/react-basic-components/node_modules/react-scripts/node_modules/@babel/plugin-syntax-object-rest-spread'
+  Error: ENOENT: no such file or directory, lstat '/home/misael/Projects/react-basic-components/node_modules/react-scripts/node_modules/@babel/plugin-syntax-object-rest-spread'
 
 npm manifest: 
   {
@@ -26,7 +26,7 @@ npm manifest:
       "react": "link:../node_modules/react",
       "react-dom": "link:../node_modules/react-dom",
       "react-scripts": "link:../node_modules/react-scripts",
-      "react-basic-components": "link:.."
+      "react-basic-components": "link:../src/index.js"
     },
     "scripts": {
       "start": "node ../node_modules/react-scripts/bin/react-scripts.js start",

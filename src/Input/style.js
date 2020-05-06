@@ -1,13 +1,14 @@
 import styled from 'styled-components'
 
 export const FloatingMessage = styled.div`
-  background: #0000;
-  position: absolute;
+  background: transparent;
   width: 100%;
   height: 20px;
   bottom: -25px;
-  font-size: 1.15rem;
-  color: red;
+  font-size: 14px;
+  font-weight: 500;
+  color: #bc0000;
+  position: absolute;
 `
 
 export const InputBody = styled.div`
@@ -57,10 +58,11 @@ export const InputBody = styled.div`
   }
 
   &.error {
+    margin-bottom: 20px;
     border-width: 2px;
-    border-color: red;
+    border-color: #bc0000;
     svg {
-      fill: red;
+      fill: #bc0000;
     }
   }
 

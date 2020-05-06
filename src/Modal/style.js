@@ -9,14 +9,14 @@ export const ModalBody = styled.div`
   place-self: center center;
   display: grid;
 
-  > svg.close-button {
-    width: 18px;
+  > .close-button {
+    width: 24px;
     position: absolute;
     right: 20px;
     top: 20px;
     z-index: 10;
     &:hover {
-      width: 20px;
+      width: 25px;
       cursor: pointer;
     }
   }

@@ -1,9 +1,14 @@
 import React from 'react'
 
-import { Button } from 'react-basic-components'
+import { Button, Input } from 'react-basic-components'
 
 const App = () => {
-  return <Button text="Botão" />
+  return (
+    <>
+      <Input error={true} errorMsg='oi' />
+      <Button text='Botão' />
+    </>
+  )
 }
 
 export default App
