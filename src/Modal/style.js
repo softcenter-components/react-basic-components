@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+
 export const ModalBody = styled.div`
   position: absolute;
   background: white;
@@ -8,6 +9,7 @@ export const ModalBody = styled.div`
   height: 340px;
   place-self: center center;
   display: grid;
+  font-family: Montserrat;
 
   > .close-button {
     width: 24px;

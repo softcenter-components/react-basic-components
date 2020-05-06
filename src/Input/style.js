@@ -5,6 +5,7 @@ export const FloatingMessage = styled.div`
   width: 100%;
   height: 20px;
   bottom: -25px;
+  font-family: Montserrat;
   font-size: 14px;
   font-weight: 500;
   color: #bc0000;
@@ -17,6 +18,7 @@ export const InputBody = styled.div`
   border: 1px solid #acacac;
   padding: 2px;
   border-radius: 10px;
+  font-family: Montserrat;
   cursor: text;
   &.contains-searchbox,
   &.error {
