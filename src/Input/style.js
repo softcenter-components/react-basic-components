@@ -17,6 +17,9 @@ export const Container = styled.div`
   width: 100%;
   box-sizing: border-box;
   grid-row-gap: 2px;
+  &.default {
+    grid-template-rows: auto;
+  }
 `
 
 export const InputBody = styled.div`

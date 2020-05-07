@@ -4,13 +4,11 @@ import { InputBody, Container, FloatingMessage } from './style'
 import { AlertCircle, Eye, EyeOff } from '../assets/icons'
 
 export const Input = forwardRef(({ errorMsg, ...props }, ref) => {
-  return props.error && errorMsg ? (
-    <Container>
+  return (
+    <Container className={!(props.error && errorMsg) ? 'default' : ''}>
       <InputComponent {...props} ref={ref} />
-      <FloatingMessage>{errorMsg}</FloatingMessage>
+      {props.error && errorMsg && <FloatingMessage>{errorMsg}</FloatingMessage>}
     </Container>
-  ) : (
-    <InputComponent {...props} ref={ref} />
   )
 })
 
@@ -85,9 +83,12 @@ const InputComponent = forwardRef(
             {showPassword ? <EyeOff /> : <Eye />}
           </div>
         ) : (
-          <div onClick={onSvgClick} className='icon-container'>
-            {icon}
-          </div>
+          icon &&
+          hasIcon && (
+            <div onClick={onSvgClick} className='icon-container'>
+              {icon}
+            </div>
+          )
         )}
       </InputBody>
     )

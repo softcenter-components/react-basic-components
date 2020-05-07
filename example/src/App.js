@@ -7,7 +7,6 @@ const App = () => {
     <>
       <Input
         // error={true}
-        type="password"
         errorMsg='lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsumlorem ipsum lorem ipsum lorem ipsum  '
 
       />

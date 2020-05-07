@@ -75,7 +75,7 @@ function _templateObject3() {
 }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteralLoose(["\n  display: grid;\n  grid-template-rows: auto auto;\n  grid-template-columns: 1fr;\n  width: 100%;\n  box-sizing: border-box;\n  grid-row-gap: 2px;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  display: grid;\n  grid-template-rows: auto auto;\n  grid-template-columns: 1fr;\n  width: 100%;\n  box-sizing: border-box;\n  grid-row-gap: 2px;\n  &.default {\n    grid-template-rows: auto;\n  }\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -141,11 +141,11 @@ var Input = forwardRef(function (_ref, ref) {
   var errorMsg = _ref.errorMsg,
       props = _objectWithoutPropertiesLoose(_ref, ["errorMsg"]);
 
-  return props.error && errorMsg ? /*#__PURE__*/React.createElement(Container, null, /*#__PURE__*/React.createElement(InputComponent, _extends({}, props, {
+  return /*#__PURE__*/React.createElement(Container, {
+    className: !(props.error && errorMsg) ? 'default' : ''
+  }, /*#__PURE__*/React.createElement(InputComponent, _extends({}, props, {
     ref: ref
-  })), /*#__PURE__*/React.createElement(FloatingMessage, null, errorMsg)) : /*#__PURE__*/React.createElement(InputComponent, _extends({}, props, {
-    ref: ref
-  }));
+  })), props.error && errorMsg && /*#__PURE__*/React.createElement(FloatingMessage, null, errorMsg));
 });
 var InputComponent = forwardRef(function (_ref2, ref) {
   var className = _ref2.className,
@@ -214,7 +214,7 @@ var InputComponent = forwardRef(function (_ref2, ref) {
         return !s;
       });
     }
-  }, showPassword ? /*#__PURE__*/React.createElement(EyeOff, null) : /*#__PURE__*/React.createElement(Eye, null)) : /*#__PURE__*/React.createElement("div", {
+  }, showPassword ? /*#__PURE__*/React.createElement(EyeOff, null) : /*#__PURE__*/React.createElement(Eye, null)) : icon && hasIcon && /*#__PURE__*/React.createElement("div", {
     onClick: onSvgClick,
     className: "icon-container"
   }, icon));
