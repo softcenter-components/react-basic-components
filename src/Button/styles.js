@@ -12,12 +12,12 @@ export const StyledButton = styled.button`
   border: 1px solid ${(props) => (props.disabled ? '#ACACAC' : '#0072bc')};
   outline: none;
 
-  &:hover {
-    cursor: pointer;
-  }
-
   &:active {
     background: #0009;
     border: 1px solid #0009;
+  }
+
+  &:hover {
+    cursor: ${(props) => (props.disabled ? 'auto' : 'pointer')};
   }
 `
