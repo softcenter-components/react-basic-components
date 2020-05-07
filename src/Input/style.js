@@ -77,6 +77,7 @@ export const InputBody = styled.div`
     font-size: 16px;
     color: #464646;
     font-family: Montserrat;
+    font-weight: 500;
     background: white;
     border-radius: 10px;
     &::placeholder {
