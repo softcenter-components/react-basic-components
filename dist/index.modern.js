@@ -44,7 +44,7 @@ function _taggedTemplateLiteralLoose(strings, raw) {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteralLoose(["\n  color: #fff;\n  background: #0072bc;\n  width: 165px;\n  height: 45px;\n  font-size: 15px;\n  font-family: 'Montserrat', sans-serif;\n  font-weight: 600;\n  border-radius: 10px;\n  border: 1px solid #0072bc;\n  outline: none;\n\n  &:hover {\n    cursor: pointer;\n  }\n\n  &:active {\n    background: #0009;\n    border: 1px solid #0009;\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  color: #fff;\n  background: ", ";\n  width: 165px;\n  height: 45px;\n  font-size: 15px;\n  font-family: 'Montserrat', sans-serif;\n  font-weight: 600;\n  border-radius: 10px;\n  border: 1px solid ", ";\n  outline: none;\n\n  &:active {\n    background: #0009;\n    border: 1px solid #0009;\n  }\n\n  &:hover {\n    cursor: ", ";\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -52,15 +52,25 @@ function _templateObject() {
 
   return data;
 }
-var StyledButton = styled.button(_templateObject());
+var StyledButton = styled.button(_templateObject(), function (props) {
+  return props.disabled ? '#ACACAC' : '#0072bc';
+}, function (props) {
+  return props.disabled ? '#ACACAC' : '#0072bc';
+}, function (props) {
+  return props.disabled ? 'auto' : 'pointer';
+});
 
 var Button = function Button(_ref) {
   var children = _ref.children,
       className = _ref.className,
-      props = _objectWithoutPropertiesLoose(_ref, ["children", "className"]);
+      disabled = _ref.disabled,
+      onClick = _ref.onClick,
+      props = _objectWithoutPropertiesLoose(_ref, ["children", "className", "disabled", "onClick"]);
 
   return /*#__PURE__*/React.createElement(StyledButton, _extends({
-    className: className
+    className: className,
+    disabled: disabled,
+    onClick: disabled ? null : onClick
   }, props), children);
 };
 

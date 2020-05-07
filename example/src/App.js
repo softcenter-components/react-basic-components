@@ -10,7 +10,7 @@ const App = () => {
         errorMsg='lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsumlorem ipsum lorem ipsum lorem ipsum  '
 
       />
-      <Button text='Botão' />
+      <Button onClick={() => console.log('123123')} disabled={false} text='Botão' />
     </>
   )
 }
