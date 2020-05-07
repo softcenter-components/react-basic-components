@@ -1,23 +1,30 @@
 import styled from 'styled-components'
+import '../index.css'
 
 export const FloatingMessage = styled.div`
   background: transparent;
   width: 100%;
-  height: 20px;
-  bottom: -25px;
   font-family: Montserrat;
   font-size: 14px;
   font-weight: 500;
-  color: #bc0000;
-  position: absolute;
+  color: #c50000;
+`
+
+export const Container = styled.div`
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: 1fr;
+  width: 100%;
+  box-sizing: border-box;
+  grid-row-gap: 2px;
 `
 
 export const InputBody = styled.div`
   width: 100%;
   height: 54px;
   border: 1px solid #acacac;
-  padding: 2px;
   border-radius: 10px;
+  box-sizing: border-box;
   font-family: Montserrat;
   cursor: text;
   &.contains-searchbox,
@@ -30,7 +37,7 @@ export const InputBody = styled.div`
     props.icon
       ? `
     grid-auto-flow: column;
-    grid-template-columns: 1fr 35px;
+    grid-template-columns: 1fr 45px;
   `
       : null}
 
@@ -42,10 +49,11 @@ export const InputBody = styled.div`
       : null}
 
   svg {
-    width: 50%;
+    width: 25px;
     height: auto;
     ${(props) => (props.svgStrokeMode ? `stroke: grey;` : 'fill: grey;')}
     place-self: center center;
+    ${(props) => (props.iconIsClickable ? `cursor: pointer;` : null)}
   }
 
   .icon-container {
@@ -60,18 +68,17 @@ export const InputBody = styled.div`
   }
 
   &.error {
-    margin-bottom: 20px;
     border-width: 2px;
-    border-color: #bc0000;
+    border-color: #c50000;
     svg {
-      fill: #bc0000;
+      fill: #c50000;
     }
   }
 
   input {
     height: 100%;
     width: 100%;
-    padding: 0px 15px;
+    padding: 0px 25px;
     outline: none;
     border: none;
     font-size: 16px;
@@ -80,6 +87,7 @@ export const InputBody = styled.div`
     font-weight: 500;
     background: white;
     border-radius: 10px;
+    box-sizing: border-box;
     &::placeholder {
       font-weight: 500;
       font-family: Montserrat;

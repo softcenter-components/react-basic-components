@@ -1,8 +1,20 @@
 import React, { forwardRef, useState, createRef } from 'react'
+import '../index.css'
+import { InputBody, Container, FloatingMessage } from './style'
+import { AlertCircle, Eye, EyeOff } from '../assets/icons'
 
-import { InputBody, FloatingMessage } from './style'
+export const Input = forwardRef(({ errorMsg, ...props }, ref) => {
+  return props.error && errorMsg ? (
+    <Container>
+      <InputComponent {...props} ref={ref} />
+      <FloatingMessage>{errorMsg}</FloatingMessage>
+    </Container>
+  ) : (
+    <InputComponent {...props} ref={ref} />
+  )
+})
 
-export const Input = forwardRef(
+const InputComponent = forwardRef(
   (
     {
       className,
@@ -17,13 +29,18 @@ export const Input = forwardRef(
       shouldStroke = false,
       containerRef,
       error,
-      errorMsg,
+      type,
       ...props
     },
     ref
   ) => {
     ref = !ref ? createRef() : ref
     const [isFocused, setIsFocused] = useState(false)
+    const [showPassword, setShowPassword] = useState(false)
+
+    const showIcon = (hasIcon && icon) || error || type === 'password'
+
+    const iconIsClickable = onSvgClick || type === 'password'
 
     return (
       <InputBody
@@ -31,9 +48,10 @@ export const Input = forwardRef(
         ref={containerRef}
         id={id}
         className={`${className} ${error ? 'error' : ''}`}
-        icon={hasIcon && icon}
+        icon={showIcon}
         isFocused={isFocused}
         onClick={() => ref.current.focus()}
+        iconIsClickable={iconIsClickable}
       >
         <input
           {...props}
@@ -50,15 +68,27 @@ export const Input = forwardRef(
           disabled={disabled}
           placeholder={placeholder}
           ref={ref}
+          type={
+            type === 'password' ? (showPassword ? 'text' : 'password') : 'text'
+          }
         />
 
-        {icon && hasIcon ? (
+        {error ? (
+          <div className='icon-container'>
+            <AlertCircle />
+          </div>
+        ) : type === 'password' ? (
+          <div
+            className='icon-container'
+            onClick={() => setShowPassword((s) => !s)}
+          >
+            {showPassword ? <EyeOff /> : <Eye />}
+          </div>
+        ) : (
           <div onClick={onSvgClick} className='icon-container'>
             {icon}
           </div>
-        ) : null}
-
-        {error && errorMsg && <FloatingMessage>* {errorMsg}</FloatingMessage>}
+        )}
       </InputBody>
     )
   }
