@@ -1,6 +1,6 @@
 # react-basic-components
 
- Componentes básicos feitos em React.js para uso nos projetos da Softcenter!
+Componentes básicos feitos em React.js para uso nos projetos da Softcenter!
 
 [![NPM](https://img.shields.io/npm/v/@softcenter/react-basic-components)](https://www.npmjs.com/package/@softcenter/react-basic-components) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
@@ -29,6 +29,96 @@ export const Example = () => {
   return <Button onClick={sayHiOnClick}>Confirmar</Button>
 }
 ```
+
+## Biblioteca de Componentes
+
+**Nota:** todos os componentes, aqui listados, podem receber **normalmente** as props nativas de elementos HTML. Exemplo: um botão pode receber a prop _`<Button disabled={true} />`_, assim como input pode receber a prop _`<Input onChange={fn} />`_.
+
+Componentes fornecidos pela biblioteca:
+
+### Button
+
+Um botão simples, no tema azul. Características:
+
+- Utiliza os seletores css `:hover` e `:active` para estilização;
+- O estado `disabled` aplica um tema **cinza** padrão no botão.
+
+---
+
+### Input
+
+Campo de entrada cinza com funções a mais. Características:
+
+- Sinalização e exibição de mensagem de erro;
+- Modo senha;
+- Ícones;
+
+Propriedades:
+
+- **`Boolean error`**
+
+  Sinalização de erro. Basta utilizar a prop `Boolean error`.
+
+- **`String errorMsg`**
+
+  Exibição de mensagem de erro através da prop `String errorMsg`. A mensagem de erro **somente será exibida** quando a prop `Boolean error` for verdadeira.
+
+- **`JSX icon`**
+
+  Ícone no campo de entrada através da prop `<JSX> icon`.
+
+  Exemplo:
+
+  ```jsx
+  const Example = () => {
+    return <Button icon={<SearchIcon />}> Pesquisar </Button>
+  }
+  ```
+
+- **`Boolean shouldStroke`**
+
+  Quando essa prop for verdadeira, o ícone recebido na prop icon terá a sua cor aplicada aplicada na propriedade css `stroke` ao invés da propriedade `fill`.
+
+  Funciona para ícones que não são bem exibidos ao serem passados para o campo de entrada.
+
+- **`String type="password"`**
+
+  Modo senha. Ao passar o tipo senha para o input `type="password"`, o campo de entrada exibe um ícone clicável para **mostrar/esconder** a senha.
+
+- **`Ref containerRef`**
+  Referência à `<div>` que contem o elemento `<input>`. Vide estrutura do componente.
+
+---
+
+### Modal
+
+Um modal simples, sem animação, que exibe conteúdo ao ser declarado. Características:
+
+- Botão de fechar opcional.
+- Botão de fechar customizável.
+- Plano de fundo (backdrop) cinza.
+
+Propriedades:
+
+- **`Function onClose`**
+
+  Recebe uma função que é executada quando o usuário clica no botão fechar. Caso nenhuma função seja passada, o **botão de fechar não será exibido**.
+
+- **`JSX CloseButton`**
+
+  Recebe um componente que será renderizado no lugar do botão fechar.
+
+  Exemplo:
+
+  ```jsx
+  const Example = () => {
+    return (
+      <Modal CloseButton={NewCloseIcon} onClose={fn}>
+        Conteúdo customizável do modal.
+      </Modal>
+    )
+  }
+  ```
 
 ## Ambiente de Desenvolvimento
 
@@ -73,94 +163,6 @@ yarn build
 4. Publicar a biblioteca com o comando `npm publish --access public`
 
 Após essas etapas, não se esqueça de realizar o commit e o push para o repositório remoto.
-
-## Biblioteca de Componentes
-
-**Nota:** todos os componentes, aqui listados, podem receber **normalmente** as props nativas de elementos HTML. Exemplo: um botão pode receber a prop _`<Button disabled={true} />`_, assim como input pode receber a prop _`<Input onChange={fn} />`_.
-
-Componentes fornecidos pela biblioteca:
-
-### Button
-
-Um botão simples, no tema azul. Características:
-
-- Utiliza os seletores css `:hover` e `:active` para estilização;
-- O estado `disabled` aplica um tema **cinza** padrão no botão.
-
-___
-### Input
-
-Campo de entrada cinza com funções a mais. Características:
-
-- Sinalização e exibição de mensagem de erro;
-- Modo senha;
-- Ícones;
-
-Propriedades:
-
-- **`Boolean error`**
-
-  Sinalização de erro. Basta utilizar a prop `Boolean error`.
-
-- **`String errorMsg`**
-
-  Exibição de mensagem de erro através da prop `String errorMsg`. A mensagem de erro **somente será exibida** quando a prop `Boolean error` for verdadeira.
-
-- **`JSX icon`**
-
-  Ícone no campo de entrada através da prop `<JSX> icon`.
-
-  Exemplo:
-
-  ```jsx
-  const Example = () => {
-    return <Button icon={<SearchIcon />}> Pesquisar </Button>
-  }
-  ```
-
-- **`Boolean shouldStroke`**
-
-  Quando essa prop for verdadeira, o ícone recebido na prop icon terá a sua cor aplicada aplicada na propriedade css `stroke` ao invés da propriedade `fill`.
-
-  Funciona para ícones que não são bem exibidos ao serem passados para o campo de entrada.
-
-- **`String type="password"`**
-
-  Modo senha. Ao passar o tipo senha para o input `type="password"`, o campo de entrada exibe um ícone clicável para **mostrar/esconder** a senha.
-
-- **`Ref containerRef`**
-  Referência à `<div>` que contem o elemento `<input>`. Vide estrutura do componente.
-
-___
-### Modal
-
-Um modal simples, sem animação, que exibe conteúdo ao ser declarado. Características:
-
-- Botão de fechar opcional.
-- Botão de fechar customizável.
-- Plano de fundo (backdrop) cinza.
-
-Propriedades:
-
-- **`function onClose`**
-
-  Recebe uma função que é executada quando o usuário clica no botão fechar. Caso nenhuma função seja passada, o **botão de fechar não será exibido**.
-
-- **`JSX CloseButton`**
-
-  Recebe um componente que será renderizado no lugar do botão fechar.
-
-  Exemplo:
-
-  ```jsx
-  const Example = () => {
-    return (
-      <Modal CloseButton={NewCloseIcon} onClose={fn}>
-        Conteúdo customizável do modal.
-      </Modal>
-    )
-  }
-  ```
 
 ## Licença
 
