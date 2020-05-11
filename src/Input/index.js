@@ -20,7 +20,6 @@ const InputComponent = forwardRef(
       disabled,
       placeholder,
       icon,
-      hasIcon = true,
       onChange,
       onSvgClick = undefined,
       onFocus = undefined,
@@ -33,10 +32,11 @@ const InputComponent = forwardRef(
     ref
   ) => {
     ref = !ref ? createRef() : ref
+    const hasIcon = !!icon
     const [isFocused, setIsFocused] = useState(false)
     const [showPassword, setShowPassword] = useState(false)
 
-    const showIcon = (hasIcon && icon) || error || type === 'password'
+    const showIcon = hasIcon || error || type === 'password'
 
     const iconIsClickable = onSvgClick || type === 'password'
 
@@ -83,7 +83,6 @@ const InputComponent = forwardRef(
             {showPassword ? <EyeOff /> : <Eye />}
           </div>
         ) : (
-          icon &&
           hasIcon && (
             <div onClick={onSvgClick} className='icon-container'>
               {icon}
