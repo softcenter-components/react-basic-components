@@ -98,15 +98,15 @@ Campo de entrada cinza com funções a mais. Características:
 
 Propriedades:
 
-- #### `Boolean error`
+- **`Boolean error`**
 
   Sinalização de erro. Basta utilizar a prop `Boolean error`.
 
-- #### `String errorMsg`
+- **`String errorMsg`**
 
   Exibição de mensagem de erro através da prop `String errorMsg`. A mensagem de erro **somente será exibida** quando a prop `Boolean error` for verdadeira.
 
-- #### `JSX icon`
+- **`JSX icon`**
 
   Ícone no campo de entrada através da prop `<JSX> icon`.
 
@@ -118,17 +118,17 @@ Propriedades:
   }
   ```
 
-- #### `Boolean shouldStroke`
+- **`Boolean shouldStroke`**
 
   Quando essa prop for verdadeira, o ícone recebido na prop icon terá a sua cor aplicada aplicada na propriedade css `stroke` ao invés da propriedade `fill`.
 
   Funciona para ícones que não são bem exibidos ao serem passados para o campo de entrada.
 
-- #### `String type="password"`
+- **`String type="password"`**
 
   Modo senha. Ao passar o tipo senha para o input `type="password"`, o campo de entrada exibe um ícone clicável para **mostrar/esconder** a senha.
 
-- #### `Ref containerRef`
+- **`Ref containerRef`**
   Referência à `<div>` que contem o elemento `<input>`. Vide estrutura do componente.
 
 ___
@@ -142,11 +142,11 @@ Um modal simples, sem animação, que exibe conteúdo ao ser declarado. Caracter
 
 Propriedades:
 
-- #### `function onClose`
+- **`function onClose`**
 
   Recebe uma função que é executada quando o usuário clica no botão fechar. Caso nenhuma função seja passada, o **botão de fechar não será exibido**.
 
-- #### `JSX CloseButton`
+- **`JSX CloseButton`**
 
   Recebe um componente que será renderizado no lugar do botão fechar.
 
