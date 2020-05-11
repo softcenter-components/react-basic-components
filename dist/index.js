@@ -166,8 +166,6 @@ var InputComponent = React.forwardRef(function (_ref2, ref) {
       disabled = _ref2.disabled,
       placeholder = _ref2.placeholder,
       icon = _ref2.icon,
-      _ref2$hasIcon = _ref2.hasIcon,
-      hasIcon = _ref2$hasIcon === void 0 ? true : _ref2$hasIcon,
       _onChange = _ref2.onChange,
       _ref2$onSvgClick = _ref2.onSvgClick,
       onSvgClick = _ref2$onSvgClick === void 0 ? undefined : _ref2$onSvgClick,
@@ -178,9 +176,10 @@ var InputComponent = React.forwardRef(function (_ref2, ref) {
       containerRef = _ref2.containerRef,
       error = _ref2.error,
       type = _ref2.type,
-      props = _objectWithoutPropertiesLoose(_ref2, ["className", "id", "disabled", "placeholder", "icon", "hasIcon", "onChange", "onSvgClick", "onFocus", "shouldStroke", "containerRef", "error", "type"]);
+      props = _objectWithoutPropertiesLoose(_ref2, ["className", "id", "disabled", "placeholder", "icon", "onChange", "onSvgClick", "onFocus", "shouldStroke", "containerRef", "error", "type"]);
 
   ref = !ref ? React.createRef() : ref;
+  var hasIcon = !!icon;
 
   var _useState = React.useState(false),
       isFocused = _useState[0],
@@ -190,7 +189,7 @@ var InputComponent = React.forwardRef(function (_ref2, ref) {
       showPassword = _useState2[0],
       setShowPassword = _useState2[1];
 
-  var showIcon = hasIcon && icon || error || type === 'password';
+  var showIcon = hasIcon || error || type === 'password';
   var iconIsClickable = onSvgClick || type === 'password';
   return /*#__PURE__*/React__default.createElement(InputBody, {
     shouldStroke: shouldStroke,
@@ -227,7 +226,7 @@ var InputComponent = React.forwardRef(function (_ref2, ref) {
         return !s;
       });
     }
-  }, showPassword ? /*#__PURE__*/React__default.createElement(EyeOff, null) : /*#__PURE__*/React__default.createElement(Eye, null)) : icon && hasIcon && /*#__PURE__*/React__default.createElement("div", {
+  }, showPassword ? /*#__PURE__*/React__default.createElement(EyeOff, null) : /*#__PURE__*/React__default.createElement(Eye, null)) : hasIcon && /*#__PURE__*/React__default.createElement("div", {
     onClick: onSvgClick,
     className: "icon-container"
   }, icon));
