@@ -45,7 +45,9 @@ const InputComponent = forwardRef(
         shouldStroke={shouldStroke}
         ref={containerRef}
         id={id}
-        className={`${className} ${error ? 'error' : ''}`}
+        className={`${className} ${error ? 'error' : ''} ${
+          type === 'password' ? 'password' : ''
+        }`}
         icon={showIcon}
         isFocused={isFocused}
         onClick={() => ref.current.focus()}
@@ -71,16 +73,16 @@ const InputComponent = forwardRef(
           }
         />
 
-        {error ? (
-          <div className='icon-container'>
-            <AlertCircle />
-          </div>
-        ) : type === 'password' ? (
+        {type === 'password' ? (
           <div
             className='icon-container'
             onClick={() => setShowPassword((s) => !s)}
           >
             {showPassword ? <EyeOff /> : <Eye />}
+          </div>
+        ) : error ? (
+          <div className='icon-container'>
+            <AlertCircle />
           </div>
         ) : (
           hasIcon && (

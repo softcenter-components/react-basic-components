@@ -73,6 +73,9 @@ export const InputBody = styled.div`
   &.error {
     border-width: 2px;
     border-color: #c50000;
+  }
+
+  &:not(.password).error {
     svg {
       fill: #c50000;
     }

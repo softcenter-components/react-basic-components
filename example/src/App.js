@@ -8,6 +8,7 @@ const App = () => {
       <Input
         error={true}
         errorMsg='lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsumlorem ipsum lorem ipsum lorem ipsum  '
+        type='password'
       />
       <Button
         onClick={() => console.log('123123')}

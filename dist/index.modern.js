@@ -75,7 +75,7 @@ var Button = function Button(_ref) {
 };
 
 function _templateObject3() {
-  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: 54px;\n  border: 1px solid #acacac;\n  border-radius: 10px;\n  box-sizing: border-box;\n  font-family: Montserrat;\n  cursor: text;\n  &.contains-searchbox,\n  &.error {\n    position: relative;\n  }\n  background: white;\n  display: grid;\n  ", "\n\n  ", "\n\n  svg {\n    width: 25px;\n    height: auto;\n    ", "\n    place-self: center center;\n    ", "\n  }\n\n  .icon-container {\n    display: grid;\n    width: 100%;\n    place-self: center;\n    place-content: center;\n  }\n\n  &.hoverable .icon-container {\n    cursor: pointer;\n  }\n\n  &.error {\n    border-width: 2px;\n    border-color: #c50000;\n    svg {\n      fill: #c50000;\n    }\n  }\n\n  input {\n    height: 100%;\n    width: 100%;\n    padding: 0px 25px;\n    outline: none;\n    border: none;\n    font-size: 16px;\n    color: #464646;\n    font-family: Montserrat;\n    font-weight: 500;\n    background: white;\n    border-radius: 10px;\n    box-sizing: border-box;\n    &::placeholder {\n      font-weight: 500;\n      font-family: Montserrat;\n      color: #959595;\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: 54px;\n  border: 1px solid #acacac;\n  border-radius: 10px;\n  box-sizing: border-box;\n  font-family: Montserrat;\n  cursor: text;\n  &.contains-searchbox,\n  &.error {\n    position: relative;\n  }\n  background: white;\n  display: grid;\n  ", "\n\n  ", "\n\n  svg {\n    width: 25px;\n    height: auto;\n    ", "\n    place-self: center center;\n    ", "\n  }\n\n  .icon-container {\n    display: grid;\n    width: 100%;\n    place-self: center;\n    place-content: center;\n  }\n\n  &.hoverable .icon-container {\n    cursor: pointer;\n  }\n\n  &.error {\n    border-width: 2px;\n    border-color: #c50000;\n  }\n\n  &:not(.password).error {\n    svg {\n      fill: #c50000;\n    }\n  }\n\n  input {\n    height: 100%;\n    width: 100%;\n    padding: 0px 25px;\n    outline: none;\n    border: none;\n    font-size: 16px;\n    color: #464646;\n    font-family: Montserrat;\n    font-weight: 500;\n    background: white;\n    border-radius: 10px;\n    box-sizing: border-box;\n    &::placeholder {\n      font-weight: 500;\n      font-family: Montserrat;\n      color: #959595;\n    }\n  }\n"]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -192,7 +192,7 @@ var InputComponent = forwardRef(function (_ref2, ref) {
     shouldStroke: shouldStroke,
     ref: containerRef,
     id: id,
-    className: className + " " + (error ? 'error' : ''),
+    className: className + " " + (error ? 'error' : '') + " " + (type === 'password' ? 'password' : ''),
     icon: showIcon,
     isFocused: isFocused,
     onClick: function onClick() {
@@ -214,16 +214,16 @@ var InputComponent = forwardRef(function (_ref2, ref) {
     placeholder: placeholder,
     ref: ref,
     type: type === 'password' ? showPassword ? 'text' : 'password' : 'text'
-  })), error ? /*#__PURE__*/React.createElement("div", {
-    className: "icon-container"
-  }, /*#__PURE__*/React.createElement(AlertCircle, null)) : type === 'password' ? /*#__PURE__*/React.createElement("div", {
+  })), type === 'password' ? /*#__PURE__*/React.createElement("div", {
     className: "icon-container",
     onClick: function onClick() {
       return setShowPassword(function (s) {
         return !s;
       });
     }
-  }, showPassword ? /*#__PURE__*/React.createElement(EyeOff, null) : /*#__PURE__*/React.createElement(Eye, null)) : hasIcon && /*#__PURE__*/React.createElement("div", {
+  }, showPassword ? /*#__PURE__*/React.createElement(EyeOff, null) : /*#__PURE__*/React.createElement(Eye, null)) : error ? /*#__PURE__*/React.createElement("div", {
+    className: "icon-container"
+  }, /*#__PURE__*/React.createElement(AlertCircle, null)) : hasIcon && /*#__PURE__*/React.createElement("div", {
     onClick: onSvgClick,
     className: "icon-container"
   }, icon));
