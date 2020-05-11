@@ -162,6 +162,6 @@ Propriedades:
   }
   ```
 
-## License
+## Licença
 
 MIT © [softcenter](https://github.com/softcenter)
