@@ -47,7 +47,7 @@ function _taggedTemplateLiteralLoose(strings, raw) {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteralLoose(["\n  color: #fff;\n  background: #0072bc;\n  height: 45px;\n  width: 100%;\n  font-size: ", ";\n  font-family: 'Montserrat', sans-serif;\n  font-weight: 600;\n  border-radius: 10px;\n  border: 1px solid #0072bc;\n  outline: none;\n  box-sizing: border-box;\n  padding: 13px 5px;\n\n  &:active {\n    background: #0009;\n    border: 1px solid #0009;\n  }\n\n  &:hover {\n    cursor: ", ";\n  }\n\n  &.disabled {\n    background: #acacac;\n    border: 1px solid #acacac;\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  color: #fff;\n  background: #0072bc;\n  height: 100%;\n  width: 100%;\n  font-size: ", ";\n  font-family: 'Montserrat', sans-serif;\n  font-weight: 600;\n  border-radius: 10px;\n  border: 1px solid #0072bc;\n  outline: none;\n  box-sizing: border-box;\n  padding: 6% 2%;\n\n  &:active {\n    background: #0009;\n    border-color: #0009;\n  }\n\n  &:hover {\n    cursor: ", ";\n  }\n\n  &.disabled {\n    background: #acacac;\n    border: 1px solid #acacac;\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -79,7 +79,7 @@ var Button = function Button(_ref) {
 };
 
 function _templateObject$1() {
-  var data = _taggedTemplateLiteralLoose(["\n  color: #464646;\n  background: transparent;\n  border-color: #959595;\n  border-width: 2px;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  color: #464646;\n  background: transparent;\n  border-color: #959595;\n  border-width: 2px;\n  &:active {\n    background: #e2e2e299;\n  }\n"]);
 
   _templateObject$1 = function _templateObject() {
     return data;
@@ -252,7 +252,7 @@ var InputComponent = React.forwardRef(function (_ref2, ref) {
 });
 
 function _templateObject$3() {
-  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: 100%;\n  font-size: 18px;\n  color: #464646;\n  font-weight: 500;\n  display: grid;\n  grid-row-gap: 8px;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: 100%;\n  font-size: ", ";\n  color: #464646;\n  font-weight: 600;\n  display: grid;\n  grid-row-gap: 10px;\n"]);
 
   _templateObject$3 = function _templateObject() {
     return data;
@@ -260,13 +260,19 @@ function _templateObject$3() {
 
   return data;
 }
-var StyledLabeledInput = styled.div(_templateObject$3());
+var StyledLabeledInput = styled.div(_templateObject$3(), function (props) {
+  return props.fontSize;
+});
 
 var LabeledInput = React__default.forwardRef(function (_ref, ref) {
   var title = _ref.title,
-      props = _objectWithoutPropertiesLoose(_ref, ["title"]);
+      _ref$fontSize = _ref.fontSize,
+      fontSize = _ref$fontSize === void 0 ? '18px' : _ref$fontSize,
+      props = _objectWithoutPropertiesLoose(_ref, ["title", "fontSize"]);
 
-  return /*#__PURE__*/React__default.createElement(StyledLabeledInput, null, /*#__PURE__*/React__default.createElement("span", {
+  return /*#__PURE__*/React__default.createElement(StyledLabeledInput, {
+    fontSize: fontSize
+  }, /*#__PURE__*/React__default.createElement("span", {
     className: "field-title"
   }, title), /*#__PURE__*/React__default.createElement(Input, _extends({}, props, {
     ref: ref

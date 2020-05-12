@@ -51,6 +51,26 @@ const Example = () => {
 }
 ```
 
+Propriedades:
+
+- **`String fontSize`**
+
+  Altera o tamanho da fonte do botão.
+
+---
+
+### SecondaryButton
+
+Variação do componente Button. Botão estilizado, com plano de fundo transparente e borda e texto evidente em preto.
+
+Exemplo:
+
+```jsx
+const Example = () => {
+  return <SecondaryButton>Enviar</SecondaryButton>
+}
+```
+
 ---
 
 ### Input
@@ -112,11 +132,13 @@ const Example = () => {
 
 Propriedades:
 
-- Possui todas as props de um input. Sua única prop adicional é a _`title`_.
-
 - **`String title`**
 
   Título do campo de entrada.
+
+- **`String fontSize`**
+
+  Altera o tamanho da fonte do campo de entrada.
 
 ---
 
@@ -149,18 +171,6 @@ Propriedades:
 - **`JSX CloseButton`**
 
   Recebe um componente que será renderizado no lugar do botão fechar.
-
-### SecondaryButton
-
-Variação do componente Button. Botão estilizado, com plano de fundo transparente e borda e texto evidente em preto.
-
-Exemplo:
-
-```jsx
-const Example = () => {
-  return <SecondaryButton>Enviar</SecondaryButton>
-}
-```
 
 ## Ambiente de Desenvolvimento
 

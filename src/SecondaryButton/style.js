@@ -6,4 +6,7 @@ export const StyledButton = styled(Button)`
   background: transparent;
   border-color: #959595;
   border-width: 2px;
+  &:active {
+    background: #e2e2e299;
+  }
 `
