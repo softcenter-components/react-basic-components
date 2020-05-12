@@ -150,7 +150,7 @@ Propriedades:
 
   Recebe um componente que será renderizado no lugar do botão fechar.
 
-### StyledButton
+### SecondaryButton
 
 Variação do componente Button. Botão estilizado, com plano de fundo transparente e borda e texto evidente em preto.
 
@@ -161,8 +161,6 @@ const Example = () => {
   return <SecondaryButton>Enviar</SecondaryButton>
 }
 ```
-
----
 
 ## Ambiente de Desenvolvimento
 
