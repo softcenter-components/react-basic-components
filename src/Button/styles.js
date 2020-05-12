@@ -2,15 +2,17 @@ import styled from 'styled-components'
 
 export const StyledButton = styled.button`
   color: #fff;
-  background: ${(props) => (props.disabled ? '#ACACAC' : '#0072bc')};
-  width: 165px;
+  background: #0072bc;
   height: 45px;
-  font-size: 15px;
+  width: 100%;
+  font-size: ${(props) => props.fontSize};
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   border-radius: 10px;
-  border: 1px solid ${(props) => (props.disabled ? '#ACACAC' : '#0072bc')};
+  border: 1px solid #0072bc;
   outline: none;
+  box-sizing: border-box;
+  padding: 13px 5px;
 
   &:active {
     background: #0009;
@@ -19,5 +21,10 @@ export const StyledButton = styled.button`
 
   &:hover {
     cursor: ${(props) => (props.disabled ? 'auto' : 'pointer')};
+  }
+
+  &.disabled {
+    background: #acacac;
+    border: 1px solid #acacac;
   }
 `

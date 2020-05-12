@@ -47,7 +47,7 @@ function _taggedTemplateLiteralLoose(strings, raw) {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteralLoose(["\n  color: #fff;\n  background: ", ";\n  width: 165px;\n  height: 45px;\n  font-size: 15px;\n  font-family: 'Montserrat', sans-serif;\n  font-weight: 600;\n  border-radius: 10px;\n  border: 1px solid ", ";\n  outline: none;\n\n  &:active {\n    background: #0009;\n    border: 1px solid #0009;\n  }\n\n  &:hover {\n    cursor: ", ";\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  color: #fff;\n  background: #0072bc;\n  height: 45px;\n  width: 100%;\n  font-size: ", ";\n  font-family: 'Montserrat', sans-serif;\n  font-weight: 600;\n  border-radius: 10px;\n  border: 1px solid #0072bc;\n  outline: none;\n  box-sizing: border-box;\n  padding: 13px 5px;\n\n  &:active {\n    background: #0009;\n    border: 1px solid #0009;\n  }\n\n  &:hover {\n    cursor: ", ";\n  }\n\n  &.disabled {\n    background: #acacac;\n    border: 1px solid #acacac;\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -56,9 +56,7 @@ function _templateObject() {
   return data;
 }
 var StyledButton = styled.button(_templateObject(), function (props) {
-  return props.disabled ? '#ACACAC' : '#0072bc';
-}, function (props) {
-  return props.disabled ? '#ACACAC' : '#0072bc';
+  return props.fontSize;
 }, function (props) {
   return props.disabled ? 'auto' : 'pointer';
 });
@@ -68,13 +66,34 @@ var Button = function Button(_ref) {
       className = _ref.className,
       disabled = _ref.disabled,
       onClick = _ref.onClick,
-      props = _objectWithoutPropertiesLoose(_ref, ["children", "className", "disabled", "onClick"]);
+      _ref$fontSize = _ref.fontSize,
+      fontSize = _ref$fontSize === void 0 ? '15px' : _ref$fontSize,
+      props = _objectWithoutPropertiesLoose(_ref, ["children", "className", "disabled", "onClick", "fontSize"]);
 
   return /*#__PURE__*/React__default.createElement(StyledButton, _extends({
     className: className,
     disabled: disabled,
-    onClick: disabled ? null : onClick
+    onClick: disabled ? null : onClick,
+    fontSize: fontSize
   }, props), children);
+};
+
+function _templateObject$1() {
+  var data = _taggedTemplateLiteralLoose(["\n  color: #464646;\n  background: transparent;\n  border-color: #959595;\n  border-width: 2px;\n"]);
+
+  _templateObject$1 = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var StyledButton$1 = styled(Button)(_templateObject$1());
+
+var SecondaryButton = function SecondaryButton(_ref) {
+  var children = _ref.children,
+      props = _objectWithoutPropertiesLoose(_ref, ["children"]);
+
+  return /*#__PURE__*/React__default.createElement(StyledButton$1, props, children);
 };
 
 function _templateObject3() {
@@ -97,16 +116,16 @@ function _templateObject2() {
   return data;
 }
 
-function _templateObject$1() {
+function _templateObject$2() {
   var data = _taggedTemplateLiteralLoose(["\n  background: transparent;\n  width: 100%;\n  font-family: Montserrat;\n  font-size: 14px;\n  font-weight: 500;\n  color: #c50000;\n"]);
 
-  _templateObject$1 = function _templateObject() {
+  _templateObject$2 = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var FloatingMessage = styled.div(_templateObject$1());
+var FloatingMessage = styled.div(_templateObject$2());
 var Container = styled.div(_templateObject2());
 var InputBody = styled.div(_templateObject3(), function (props) {
   return props.icon ? "\n    grid-auto-flow: column;\n    grid-template-columns: 1fr 45px;\n  " : null;
@@ -232,6 +251,28 @@ var InputComponent = React.forwardRef(function (_ref2, ref) {
   }, icon));
 });
 
+function _templateObject$3() {
+  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: 100%;\n  font-size: 18px;\n  color: #464646;\n  font-weight: 500;\n  display: grid;\n  grid-row-gap: 8px;\n"]);
+
+  _templateObject$3 = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var StyledLabeledInput = styled.div(_templateObject$3());
+
+var LabeledInput = React__default.forwardRef(function (_ref, ref) {
+  var title = _ref.title,
+      props = _objectWithoutPropertiesLoose(_ref, ["title"]);
+
+  return /*#__PURE__*/React__default.createElement(StyledLabeledInput, null, /*#__PURE__*/React__default.createElement("span", {
+    className: "field-title"
+  }, title), /*#__PURE__*/React__default.createElement(Input, _extends({}, props, {
+    ref: ref
+  })));
+});
+
 function _templateObject2$1() {
   var data = _taggedTemplateLiteralLoose(["\n  left: 0;\n  position: fixed;\n  width: 100%;\n  height: 100vh;\n  background: #000000a6;\n  display: grid;\n  top: 0;\n  z-index: 100;\n"]);
 
@@ -242,16 +283,16 @@ function _templateObject2$1() {
   return data;
 }
 
-function _templateObject$2() {
+function _templateObject$4() {
   var data = _taggedTemplateLiteralLoose(["\n  position: absolute;\n  background: white;\n  padding: 35px;\n  border-radius: 10px;\n  width: 580px;\n  height: 340px;\n  place-self: center center;\n  display: grid;\n  font-family: Montserrat;\n\n  > .close-button {\n    width: 24px;\n    position: absolute;\n    right: 20px;\n    top: 20px;\n    z-index: 10;\n    &:hover {\n      width: 25px;\n      cursor: pointer;\n    }\n  }\n"]);
 
-  _templateObject$2 = function _templateObject() {
+  _templateObject$4 = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var ModalBody = styled.div(_templateObject$2());
+var ModalBody = styled.div(_templateObject$4());
 var StyledBackground = styled.div(_templateObject2$1());
 
 var Modal = function Modal(_ref) {
@@ -273,5 +314,7 @@ var Modal = function Modal(_ref) {
 
 exports.Button = Button;
 exports.Input = Input;
+exports.LabeledInput = LabeledInput;
 exports.Modal = Modal;
+exports.SecondaryButton = SecondaryButton;
 //# sourceMappingURL=index.js.map

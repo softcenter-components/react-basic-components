@@ -7,6 +7,7 @@ export const Button = ({
   className,
   disabled,
   onClick,
+  fontSize = '15px',
   ...props
 }) => {
   return (
@@ -14,6 +15,7 @@ export const Button = ({
       className={className}
       disabled={disabled}
       onClick={disabled ? null : onClick}
+      fontSize={fontSize}
       {...props}
     >
       {children}

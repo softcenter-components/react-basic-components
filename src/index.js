@@ -1,3 +1,5 @@
 export * from './Button'
+export * from './SecondaryButton'
 export * from './Input'
+export * from './LabeledInput'
 export * from './Modal'
