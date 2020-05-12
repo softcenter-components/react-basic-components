@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Close } from '../assets/icons'
-import { StyledBackground, ModalBody } from './style'
+import { StyledBackground, ModalBody, ClickableOverlay } from './style'
 
 export const Modal = ({
   children,
@@ -11,6 +11,7 @@ export const Modal = ({
 }) => {
   return (
     <StyledBackground>
+      <ClickableOverlay onClick={onClose} />
       <ModalBody className={`modal-div ${className}`}>
         {onClose &&
           (CloseIcon ? (

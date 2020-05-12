@@ -276,8 +276,18 @@ var LabeledInput = React.forwardRef(function (_ref, ref) {
   })));
 });
 
+function _templateObject3$1() {
+  var data = _taggedTemplateLiteralLoose(["\n  left: 0;\n  position: fixed;\n  width: 100%;\n  height: 100vh;\n  background: #000000a6;\n  display: grid;\n  top: 0;\n  z-index: 80;\n"]);
+
+  _templateObject3$1 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
 function _templateObject2$1() {
-  var data = _taggedTemplateLiteralLoose(["\n  left: 0;\n  position: fixed;\n  width: 100%;\n  height: 100vh;\n  background: #000000a6;\n  display: grid;\n  top: 0;\n  z-index: 100;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  z-index: 85;\n"]);
 
   _templateObject2$1 = function _templateObject2() {
     return data;
@@ -287,7 +297,7 @@ function _templateObject2$1() {
 }
 
 function _templateObject$4() {
-  var data = _taggedTemplateLiteralLoose(["\n  position: absolute;\n  background: white;\n  padding: 35px;\n  border-radius: 10px;\n  width: 580px;\n  height: 340px;\n  place-self: center center;\n  display: grid;\n  font-family: Montserrat;\n\n  > .close-button {\n    width: 24px;\n    position: absolute;\n    right: 20px;\n    top: 20px;\n    z-index: 10;\n    &:hover {\n      width: 25px;\n      cursor: pointer;\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  position: absolute;\n  background: white;\n  padding: 35px;\n  border-radius: 10px;\n  width: 580px;\n  height: 340px;\n  place-self: center center;\n  display: grid;\n  font-family: Montserrat;\n  z-index: 90;\n\n  > .close-button {\n    width: 24px;\n    position: absolute;\n    right: 20px;\n    top: 20px;\n    z-index: 100;\n    &:hover {\n      width: 25px;\n      cursor: pointer;\n    }\n  }\n"]);
 
   _templateObject$4 = function _templateObject() {
     return data;
@@ -296,7 +306,8 @@ function _templateObject$4() {
   return data;
 }
 var ModalBody = styled.div(_templateObject$4());
-var StyledBackground = styled.div(_templateObject2$1());
+var ClickableOverlay = styled.div(_templateObject2$1());
+var StyledBackground = styled.div(_templateObject3$1());
 
 var Modal = function Modal(_ref) {
   var children = _ref.children,
@@ -304,7 +315,9 @@ var Modal = function Modal(_ref) {
       onClose = _ref$onClose === void 0 ? undefined : _ref$onClose,
       className = _ref.className,
       CloseIcon = _ref.CloseIcon;
-  return /*#__PURE__*/React.createElement(StyledBackground, null, /*#__PURE__*/React.createElement(ModalBody, {
+  return /*#__PURE__*/React.createElement(StyledBackground, null, /*#__PURE__*/React.createElement(ClickableOverlay, {
+    onClick: onClose
+  }), /*#__PURE__*/React.createElement(ModalBody, {
     className: "modal-div " + className
   }, onClose && (CloseIcon ? /*#__PURE__*/React.createElement(CloseIcon, {
     className: "close-button",

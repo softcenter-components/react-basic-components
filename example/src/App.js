@@ -1,11 +1,11 @@
 import React from 'react'
 
-import { SecondaryButton } from 'react-basic-components'
+import { Modal } from 'react-basic-components'
 
 const App = () => {
   return (
     <>
-      <SecondaryButton>butão</SecondaryButton>
+      <Modal />
     </>
   )
 }
