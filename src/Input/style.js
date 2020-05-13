@@ -84,7 +84,7 @@ export const InputBody = styled.div`
   input {
     height: 100%;
     width: 100%;
-    padding: 4% 22px;
+    padding: 4% 9.5%;
     outline: none;
     border: none;
     font-size: 16px;
