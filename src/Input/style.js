@@ -24,7 +24,7 @@ export const Container = styled.div`
 
 export const InputBody = styled.div`
   width: 100%;
-  height: 54px;
+  height: 100%;
   border: 1px solid #acacac;
   border-radius: 10px;
   box-sizing: border-box;
@@ -84,7 +84,7 @@ export const InputBody = styled.div`
   input {
     height: 100%;
     width: 100%;
-    padding: 0px 25px;
+    padding: 4% 22px;
     outline: none;
     border: none;
     font-size: 16px;

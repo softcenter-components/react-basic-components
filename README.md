@@ -34,6 +34,8 @@ export const Example = () => {
 
 **Nota:** todos os componentes, aqui listados, podem receber **normalmente** as props nativas de elementos HTML. Exemplo: um botão pode receber a prop _`<Button disabled={true} />`_, assim como input pode receber a prop _`<Input onChange={fn} />`_.
 
+Os componentes tem largura e altura 100%, sendo necessario ajustar a div que a contem.
+
 Componentes fornecidos pela biblioteca:
 
 ### Button
