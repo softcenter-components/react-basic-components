@@ -26,7 +26,7 @@ const InputComponent = forwardRef(
       shouldStroke = false,
       containerRef,
       error,
-      type,
+      type = 'text',
       ...props
     },
     ref
@@ -45,11 +45,12 @@ const InputComponent = forwardRef(
         shouldStroke={shouldStroke}
         ref={containerRef}
         id={id}
-        className={`${className} ${error ? 'error' : ''} ${
-          type === 'password' ? 'password' : ''
-        }`}
+        className={`
+          ${className} ${error ? 'error' : ''} 
+          ${type === 'password' ? 'password' : ''} 
+          ${isFocused ? 'focused' : ''}
+        `}
         icon={showIcon}
-        isFocused={isFocused}
         onClick={() => ref.current.focus()}
         iconIsClickable={iconIsClickable}
       >
@@ -69,7 +70,7 @@ const InputComponent = forwardRef(
           placeholder={placeholder}
           ref={ref}
           type={
-            type === 'password' ? (showPassword ? 'text' : 'password') : 'text'
+            type === 'password' ? (showPassword ? 'text' : 'password') : type
           }
         />
 
