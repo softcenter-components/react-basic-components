@@ -94,7 +94,7 @@ var SecondaryButton = function SecondaryButton(_ref) {
 };
 
 function _templateObject3() {
-  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: 100%;\n  border: 1px solid #acacac;\n  border-radius: 10px;\n  box-sizing: border-box;\n  font-family: Montserrat;\n  cursor: text;\n  &.contains-searchbox,\n  &.error {\n    position: relative;\n  }\n  background: white;\n  display: grid;\n  ", "\n\n  ", "\n\n  svg {\n    width: 25px;\n    height: auto;\n    ", "\n    place-self: center center;\n    ", "\n  }\n\n  .icon-container {\n    display: grid;\n    width: 100%;\n    place-self: center;\n    place-content: center;\n  }\n\n  &.hoverable .icon-container {\n    cursor: pointer;\n  }\n\n  &.error {\n    border-width: 2px;\n    border-color: #c50000;\n  }\n\n  &:not(.password).error {\n    svg {\n      fill: #c50000;\n    }\n  }\n\n  input {\n    height: 100%;\n    width: 100%;\n    padding: 4% 9.5%;\n    outline: none;\n    border: none;\n    font-size: 16px;\n    color: #464646;\n    font-family: Montserrat;\n    font-weight: 500;\n    background: white;\n    border-radius: 10px;\n    box-sizing: border-box;\n    &::placeholder {\n      font-weight: 500;\n      font-family: Montserrat;\n      color: #959595;\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: 100%;\n  border: 1px solid #acacac;\n  border-radius: 10px;\n  box-sizing: border-box;\n  font-family: Montserrat;\n  cursor: text;\n  &.contains-searchbox,\n  &.error {\n    position: relative;\n  }\n  background: white;\n  display: grid;\n  ", "\n\n  &.focused {\n    box-shadow: 0 0 5px 0 #dddddd;\n  }\n\n  svg {\n    width: 25px;\n    height: auto;\n    ", "\n    place-self: center center;\n    ", "\n  }\n\n  .icon-container {\n    display: grid;\n    width: 100%;\n    place-self: center;\n    place-content: center;\n  }\n\n  &.hoverable .icon-container {\n    cursor: pointer;\n  }\n\n  &.error {\n    border-width: 2px;\n    border-color: #c50000;\n  }\n\n  &:not(.password).error {\n    svg {\n      fill: #c50000;\n    }\n  }\n\n  input {\n    height: 100%;\n    width: 100%;\n    padding: 4% 9.5%;\n    outline: none;\n    border: none;\n    font-size: 16px;\n    color: #464646;\n    font-family: Montserrat;\n    font-weight: 500;\n    background: white;\n    border-radius: 10px;\n    box-sizing: border-box;\n    &::placeholder {\n      font-weight: 500;\n      font-family: Montserrat;\n      color: #959595;\n    }\n\n    /* Chrome, Safari, Edge, Opera */\n    &::-webkit-outer-spin-button,\n    &::-webkit-inner-spin-button {\n      -webkit-appearance: none;\n      margin: 0;\n    }\n\n    /* Firefox */\n    &[type=number] {\n      -moz-appearance: textfield;\n    }\n  }\n"]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -126,8 +126,6 @@ var FloatingMessage = styled.div(_templateObject$2());
 var Container = styled.div(_templateObject2());
 var InputBody = styled.div(_templateObject3(), function (props) {
   return props.icon ? "\n    grid-auto-flow: column;\n    grid-template-columns: 1fr 45px;\n  " : null;
-}, function (props) {
-  return props.isFocused ? "\n    box-shadow: 0 0 5px 0 #dddddd;\n  " : null;
 }, function (props) {
   return props.svgStrokeMode ? "stroke: grey;" : 'fill: grey;';
 }, function (props) {
@@ -191,7 +189,8 @@ var InputComponent = forwardRef(function (_ref2, ref) {
       shouldStroke = _ref2$shouldStroke === void 0 ? false : _ref2$shouldStroke,
       containerRef = _ref2.containerRef,
       error = _ref2.error,
-      type = _ref2.type,
+      _ref2$type = _ref2.type,
+      type = _ref2$type === void 0 ? 'text' : _ref2$type,
       props = _objectWithoutPropertiesLoose(_ref2, ["className", "id", "disabled", "placeholder", "icon", "onChange", "onSvgClick", "onFocus", "shouldStroke", "containerRef", "error", "type"]);
 
   ref = !ref ? createRef() : ref;
@@ -211,9 +210,8 @@ var InputComponent = forwardRef(function (_ref2, ref) {
     shouldStroke: shouldStroke,
     ref: containerRef,
     id: id,
-    className: className + " " + (error ? 'error' : '') + " " + (type === 'password' ? 'password' : ''),
+    className: "\n          " + className + " " + (error ? 'error' : '') + " \n          " + (type === 'password' ? 'password' : '') + " \n          " + (isFocused ? 'focused' : '') + "\n        ",
     icon: showIcon,
-    isFocused: isFocused,
     onClick: function onClick() {
       return ref.current.focus();
     },
@@ -232,7 +230,7 @@ var InputComponent = forwardRef(function (_ref2, ref) {
     disabled: disabled,
     placeholder: placeholder,
     ref: ref,
-    type: type === 'password' ? showPassword ? 'text' : 'password' : 'text'
+    type: type === 'password' ? showPassword ? 'text' : 'password' : type
   })), type === 'password' ? /*#__PURE__*/React.createElement("div", {
     className: "icon-container",
     onClick: function onClick() {

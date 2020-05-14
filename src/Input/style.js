@@ -44,12 +44,9 @@ export const InputBody = styled.div`
   `
       : null}
 
-  ${(props) =>
-    props.isFocused
-      ? `
+  &.focused {
     box-shadow: 0 0 5px 0 #dddddd;
-  `
-      : null}
+  }
 
   svg {
     width: 25px;
@@ -98,6 +95,18 @@ export const InputBody = styled.div`
       font-weight: 500;
       font-family: Montserrat;
       color: #959595;
+    }
+
+    /* Chrome, Safari, Edge, Opera */
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Firefox */
+    &[type=number] {
+      -moz-appearance: textfield;
     }
   }
 `
