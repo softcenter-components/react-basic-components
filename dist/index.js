@@ -47,7 +47,7 @@ function _taggedTemplateLiteralLoose(strings, raw) {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteralLoose(["\n  color: #fff;\n  background: #0072bc;\n  height: 100%;\n  width: 100%;\n  font-size: ", ";\n  font-family: 'Montserrat', sans-serif;\n  font-weight: 600;\n  border-radius: 10px;\n  border: 1px solid #0072bc;\n  outline: none;\n  box-sizing: border-box;\n  padding: 6% 2%;\n\n  &:active {\n    background: #0009;\n    border-color: #0009;\n  }\n\n  &:hover {\n    cursor: ", ";\n  }\n\n  &.disabled {\n    background: #acacac;\n    border: 1px solid #acacac;\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  color: #fff;\n  background: #0072bc;\n  height: 100%;\n  width: 100%;\n  font-size: ", ";\n  font-family: 'Montserrat', sans-serif;\n  font-weight: 600;\n  border-radius: 10px;\n  border: 1px solid #0072bc;\n  outline: none;\n  box-sizing: border-box;\n  padding: 6% 2%;\n\n  &:active {\n    background: #0009;\n    border-color: #0009;\n  }\n\n  &:hover {\n    cursor: pointer;\n  }\n\n  &.disabled {\n    background: #acacac;\n    border: 1px solid #acacac;\n    &:hover {\n      cursor: auto;\n    }\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -57,8 +57,6 @@ function _templateObject() {
 }
 var StyledButton = styled.button(_templateObject(), function (props) {
   return props.fontSize;
-}, function (props) {
-  return props.disabled ? 'auto' : 'pointer';
 });
 
 var Button = function Button(_ref) {
@@ -71,7 +69,7 @@ var Button = function Button(_ref) {
       props = _objectWithoutPropertiesLoose(_ref, ["children", "className", "disabled", "onClick", "fontSize"]);
 
   return /*#__PURE__*/React__default.createElement(StyledButton, _extends({
-    className: className,
+    className: className + (disabled ? ' disabled' : ''),
     disabled: disabled,
     onClick: disabled ? null : onClick,
     fontSize: fontSize

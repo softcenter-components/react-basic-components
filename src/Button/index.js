@@ -12,7 +12,7 @@ export const Button = ({
 }) => {
   return (
     <StyledButton
-      className={className}
+      className={className + (disabled ? ' disabled' : '')}
       disabled={disabled}
       onClick={disabled ? null : onClick}
       fontSize={fontSize}

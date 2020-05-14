@@ -19,6 +19,9 @@ const App = () => {
       <h3>Button</h3>
       <Button>Clique</Button>
 
+      <h3>Disabled Button</h3>
+      <Button disabled={true} >Clique</Button>
+
       <h3>Modal</h3>
       {/* <Modal /> */}
     </Container>

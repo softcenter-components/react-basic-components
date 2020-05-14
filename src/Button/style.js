@@ -20,11 +20,14 @@ export const StyledButton = styled.button`
   }
 
   &:hover {
-    cursor: ${(props) => (props.disabled ? 'auto' : 'pointer')};
+    cursor: pointer;
   }
 
   &.disabled {
     background: #acacac;
     border: 1px solid #acacac;
+    &:hover {
+      cursor: auto;
+    }
   }
 `
