@@ -8,7 +8,7 @@ export const StyledButton = styled.button`
   font-size: ${(props) => props.fontSize};
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
-  border-radius: 10px;
+  border-radius: 8px;
   border: 1px solid #0072bc;
   outline: none;
   box-sizing: border-box;
