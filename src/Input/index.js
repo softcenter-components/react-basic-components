@@ -7,7 +7,7 @@ export const Input = forwardRef(({ errorMsg, ...props }, ref) => {
   return (
     <Container className={!(props.error && errorMsg) ? 'default' : ''}>
       <InputComponent {...props} ref={ref} />
-      {props.error && errorMsg && <FloatingMessage>{errorMsg}</FloatingMessage>}
+      {props.error && errorMsg && <FloatingMessage className="floating-message" >{errorMsg}</FloatingMessage>}
     </Container>
   )
 })
