@@ -170,7 +170,9 @@ var Input = forwardRef(function (_ref, ref) {
     className: !(props.error && errorMsg) ? 'default' : ''
   }, /*#__PURE__*/React.createElement(InputComponent, _extends({}, props, {
     ref: ref
-  })), props.error && errorMsg && /*#__PURE__*/React.createElement(FloatingMessage, null, errorMsg));
+  })), props.error && errorMsg && /*#__PURE__*/React.createElement(FloatingMessage, {
+    className: "floating-message"
+  }, errorMsg));
 });
 var InputComponent = forwardRef(function (_ref2, ref) {
   var className = _ref2.className,
