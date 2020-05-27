@@ -264,9 +264,11 @@ var LabeledInput = React__default.forwardRef(function (_ref, ref) {
   var title = _ref.title,
       _ref$fontSize = _ref.fontSize,
       fontSize = _ref$fontSize === void 0 ? '18px' : _ref$fontSize,
-      props = _objectWithoutPropertiesLoose(_ref, ["title", "fontSize"]);
+      className = _ref.className,
+      props = _objectWithoutPropertiesLoose(_ref, ["title", "fontSize", "className"]);
 
   return /*#__PURE__*/React__default.createElement(StyledLabeledInput, {
+    className: className,
     fontSize: fontSize
   }, /*#__PURE__*/React__default.createElement("span", {
     className: "field-title"
