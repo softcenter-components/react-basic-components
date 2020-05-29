@@ -81,8 +81,8 @@ export const InputBody = styled.div`
   input {
     height: 100%;
     width: 100%;
-    padding: 3.4% 8%;
     outline: none;
+    padding: 0 25px;
     border: none;
     font-size: 16px;
     color: #464646;
@@ -105,7 +105,7 @@ export const InputBody = styled.div`
     }
 
     /* Firefox */
-    &[type=number] {
+    &[type='number'] {
       -moz-appearance: textfield;
     }
   }
