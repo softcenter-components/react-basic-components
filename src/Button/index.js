@@ -14,6 +14,7 @@ export const Button = ({
     <StyledButton
       className={className + (disabled ? ' disabled' : '')}
       disabled={disabled}
+      type='button'
       onClick={disabled ? null : onClick}
       fontSize={fontSize}
       {...props}

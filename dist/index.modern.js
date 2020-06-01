@@ -68,6 +68,7 @@ var Button = function Button(_ref) {
   return /*#__PURE__*/React.createElement(StyledButton, _extends({
     className: className + (disabled ? ' disabled' : ''),
     disabled: disabled,
+    type: "button",
     onClick: disabled ? null : onClick,
     fontSize: fontSize
   }, props), children);
