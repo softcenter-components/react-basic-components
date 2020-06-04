@@ -1,11 +1,12 @@
 import React from 'react'
 
-import { Button, Input, Modal } from 'react-basic-components';
+import { Button, Input, Modal, LoadingBackdrop } from 'react-basic-components';
 import { Container } from './style';
 
 const App = () => {
   return (
     <Container>
+      {/* <LoadingBackdrop text='Carregando' /> */}
       <h1>Exemplos</h1>
       <p>Os componentes tem largura e altura 100%, e devem ser renderizados seguindo a div que a contem.</p>
 

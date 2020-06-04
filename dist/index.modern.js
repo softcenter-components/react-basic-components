@@ -217,7 +217,6 @@ var InputComponent = forwardRef(function (_ref2, ref) {
     var camelCaseWords = words.map(function (word) {
       if (word.length > 1) return word.charAt(0).toUpperCase() + word.substring(1);else return word;
     });
-    console.log(camelCaseWords);
     var formattedText = '';
 
     for (var i = 0; i < camelCaseWords.length; i++) {
@@ -350,5 +349,73 @@ var Modal = function Modal(_ref) {
   })), children));
 };
 
-export { Button, Input, LabeledInput, Modal, SecondaryButton };
+function _templateObject$5() {
+  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: 100%;\n  z-index: 30;\n  position: fixed;\n  background: #050f35ba;\n  display: grid;\n  grid-template-columns: 1fr;\n  grid-template-rows: auto auto;\n  place-content: center;\n  place-items: center;\n  grid-gap: 15px 0;\n  > svg {\n    width: 200px;\n    height: 200px;\n  }\n  > span {\n    color: white;\n    font-weight: 500;\n    font-size: 25px;\n  }\n"]);
+
+  _templateObject$5 = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var StyledLoadingBackdrop = styled.div(_templateObject$5());
+
+var SpinningCircle = function SpinningCircle(props) {
+  return /*#__PURE__*/React.createElement("svg", _extends({}, props, {
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 100 100",
+    preserveAspectRatio: "xMidYMid"
+  }), /*#__PURE__*/React.createElement("g", {
+    transform: "rotate(72.0756 50 50)"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M90 50 A40 40 0 0 1 74.93959207434935 81.2732592987212",
+    fill: "none",
+    stroke: "#0072bc",
+    strokeWidth: "6"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M74.93959207434935 81.2732592987212 A40 40 0 0 1 41.09916264174743 88.99711648727295",
+    fill: "none",
+    stroke: "#0072bc",
+    strokeWidth: "6"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M41.09916264174743 88.99711648727295 A40 40 0 0 1 13.961245283903239 67.35534956470232",
+    fill: "none",
+    stroke: "#a0a9b9",
+    strokeWidth: "6"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M13.961245283903239 67.35534956470232 A40 40 0 0 1 13.961245283903231 32.64465043529768",
+    fill: "none",
+    stroke: "#a0a9b9",
+    strokeWidth: "6"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M13.961245283903231 32.64465043529768 A40 40 0 0 1 41.09916264174741 11.002883512727053",
+    fill: "none",
+    stroke: "#a0a9b9",
+    strokeWidth: "6"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M41.09916264174741 11.002883512727053 A40 40 0 0 1 74.93959207434933 18.726740701278803",
+    fill: "none",
+    stroke: "#0072bc",
+    strokeWidth: "6"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M74.93959207434933 18.726740701278803 A40 40 0 0 1 90 49.99999999999999",
+    fill: "none",
+    stroke: "#0072bc",
+    strokeWidth: "6"
+  }), /*#__PURE__*/React.createElement("animateTransform", {
+    attributeName: "transform",
+    type: "rotate",
+    values: "0 50 50;360 50 50",
+    times: "0;1",
+    dur: "0.5",
+    repeatCount: "indefinite"
+  })));
+};
+
+var LoadingBackdrop = function LoadingBackdrop(_ref) {
+  var text = _ref.text;
+  return /*#__PURE__*/React.createElement(StyledLoadingBackdrop, null, /*#__PURE__*/React.createElement(SpinningCircle, null), /*#__PURE__*/React.createElement("span", null, text));
+};
+
+export { Button, Input, LabeledInput, LoadingBackdrop, Modal, SecondaryButton };
 //# sourceMappingURL=index.modern.js.map
