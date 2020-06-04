@@ -194,9 +194,10 @@ var InputComponent = React.forwardRef(function (_ref2, ref) {
       shouldStroke = _ref2$shouldStroke === void 0 ? false : _ref2$shouldStroke,
       containerRef = _ref2.containerRef,
       error = _ref2.error,
+      camelCase = _ref2.camelCase,
       _ref2$type = _ref2.type,
       type = _ref2$type === void 0 ? 'text' : _ref2$type,
-      props = _objectWithoutPropertiesLoose(_ref2, ["className", "id", "disabled", "placeholder", "icon", "onChange", "onSvgClick", "onFocus", "shouldStroke", "containerRef", "error", "type"]);
+      props = _objectWithoutPropertiesLoose(_ref2, ["className", "id", "disabled", "placeholder", "icon", "onChange", "onSvgClick", "onFocus", "shouldStroke", "containerRef", "error", "camelCase", "type"]);
 
   ref = !ref ? React.createRef() : ref;
   var hasIcon = !!icon;
@@ -211,6 +212,24 @@ var InputComponent = React.forwardRef(function (_ref2, ref) {
 
   var showIcon = hasIcon || error || type === 'password';
   var iconIsClickable = onSvgClick || type === 'password';
+
+  var applyCamelCase = function applyCamelCase(event) {
+    if (event.target.value.charAt(event.target.value.length - 1) === ' ') return;
+    var words = event.target.value.split(' ');
+    if (words[words.length - 1].length < 2) return;
+    var camelCaseWords = words.map(function (word) {
+      if (word.length > 1) return word.charAt(0).toUpperCase() + word.substring(1);else return word;
+    });
+    console.log(camelCaseWords);
+    var formattedText = '';
+
+    for (var i = 0; i < camelCaseWords.length; i++) {
+      if (camelCaseWords.length === 1 || i === camelCaseWords.length - 1) formattedText += camelCaseWords[i];else formattedText += camelCaseWords[i] + ' ';
+    }
+
+    event.target.value = formattedText;
+  };
+
   return /*#__PURE__*/React__default.createElement(InputBody, {
     shouldStroke: shouldStroke,
     ref: containerRef,
@@ -223,6 +242,7 @@ var InputComponent = React.forwardRef(function (_ref2, ref) {
     iconIsClickable: iconIsClickable
   }, /*#__PURE__*/React__default.createElement("input", _extends({}, props, {
     onChange: function onChange(e) {
+      if (camelCase) applyCamelCase(e);
       if (_onChange) _onChange(e);
     },
     onFocus: function onFocus(e) {

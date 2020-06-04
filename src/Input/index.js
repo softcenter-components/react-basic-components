@@ -30,6 +30,7 @@ const InputComponent = forwardRef(
       shouldStroke = false,
       containerRef,
       error,
+      camelCase,
       type = 'text',
       ...props
     },
@@ -43,6 +44,26 @@ const InputComponent = forwardRef(
     const showIcon = hasIcon || error || type === 'password'
 
     const iconIsClickable = onSvgClick || type === 'password'
+
+    const applyCamelCase = (event) => {
+      if (event.target.value.charAt(event.target.value.length - 1) === ' ') return
+      const words = event.target.value.split(' ')
+      if (words[words.length - 1].length < 2) return
+
+      const camelCaseWords = words.map((word) => {
+        if (word.length > 1) return word.charAt(0).toUpperCase() + word.substring(1)
+        else return word
+      })
+      console.log(camelCaseWords)
+      let formattedText = ''
+
+      for (let i = 0; i < camelCaseWords.length; i++) {
+        if (camelCaseWords.length === 1 || i === camelCaseWords.length - 1) formattedText += camelCaseWords[i]
+        else formattedText += camelCaseWords[i] + ' '
+      }
+
+      event.target.value = formattedText
+    }
 
     return (
       <InputBody
@@ -61,6 +82,7 @@ const InputComponent = forwardRef(
         <input
           {...props}
           onChange={(e) => {
+            if (camelCase) applyCamelCase(e)
             if (onChange) onChange(e)
           }}
           onFocus={(e) => {

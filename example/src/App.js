@@ -11,6 +11,7 @@ const App = () => {
 
       <h3>Input</h3>
       <Input
+        camelCase={true}
         // error={true}
         // type="password"
         errorMsg='Mensagens de erro'
