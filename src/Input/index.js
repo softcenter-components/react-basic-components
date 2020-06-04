@@ -54,7 +54,7 @@ const InputComponent = forwardRef(
         if (word.length > 1) return word.charAt(0).toUpperCase() + word.substring(1)
         else return word
       })
-      console.log(camelCaseWords)
+
       let formattedText = ''
 
       for (let i = 0; i < camelCaseWords.length; i++) {
