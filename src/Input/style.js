@@ -26,7 +26,7 @@ export const InputBody = styled.div`
   width: 100%;
   height: 100%;
   border: 1px solid #acacac;
-  border-radius: 5px;
+  border-radius: 10px;
   box-sizing: border-box;
   font-family: Montserrat;
   cursor: text;
@@ -89,7 +89,7 @@ export const InputBody = styled.div`
     font-family: Montserrat;
     font-weight: 500;
     background: white;
-    border-radius: 5px;
+    border-radius: 10px;
     box-sizing: border-box;
     &::placeholder {
       font-weight: 500;
