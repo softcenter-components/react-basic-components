@@ -5,7 +5,7 @@ const StyledLoadingBackdrop = styled.div`
   height: 100%;
   z-index: 30;
   position: fixed;
-  background: #050f35ba;
+  background: rgba(0, 0, 0, 0.3);
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto;
@@ -23,4 +23,4 @@ const StyledLoadingBackdrop = styled.div`
   }
 `;
 
-export default StyledLoadingBackdrop
+export default StyledLoadingBackdrop;

@@ -6,7 +6,7 @@ import { Container } from './style';
 const App = () => {
   return (
     <Container>
-      {/* <LoadingBackdrop text='Carregando' /> */}
+      {/* <LoadingBackdrop text='Carregando' color="#4CAD8D" /> */}
       <h1>Exemplos</h1>
       <p>Os componentes tem largura e altura 100%, e devem ser renderizados seguindo a div que a contem.</p>
 

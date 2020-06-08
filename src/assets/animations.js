@@ -6,13 +6,13 @@ export const SpinningCircle = props => (
       <path
         d="M90 50 A40 40 0 0 1 74.93959207434935 81.2732592987212"
         fill="none"
-        stroke="#0072bc"
+        stroke={props.color}
         strokeWidth="6"
       />
       <path
         d="M74.93959207434935 81.2732592987212 A40 40 0 0 1 41.09916264174743 88.99711648727295"
         fill="none"
-        stroke="#0072bc"
+        stroke={props.color}
         strokeWidth="6"
       />
       <path
@@ -36,13 +36,13 @@ export const SpinningCircle = props => (
       <path
         d="M41.09916264174741 11.002883512727053 A40 40 0 0 1 74.93959207434933 18.726740701278803"
         fill="none"
-        stroke="#0072bc"
+        stroke={props.color}
         strokeWidth="6"
       />
       <path
         d="M74.93959207434933 18.726740701278803 A40 40 0 0 1 90 49.99999999999999"
         fill="none"
-        stroke="#0072bc"
+        stroke={props.color}
         strokeWidth="6"
       />
       <animateTransform
