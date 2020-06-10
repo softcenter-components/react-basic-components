@@ -61,6 +61,36 @@ Propriedades:
 
 ---
 
+### Checkbox
+
+Checkbox padrão, customizável. Características:
+
+- O estado `enabled` aplica um tema **azul** sobre a checkbox.
+
+Exemplo:
+
+```jsx
+const Example = () => {
+  return <Checkbox enabled round small />
+}
+```
+
+Propriedades:
+
+- **`Boolean enabled`**
+
+  Torna a checkbox ativa.
+
+- **`Boolean round`**
+
+  Arredonda os cantos da checkbox.
+
+- **`Boolean small`**
+
+  Diminui o tamanho da checkbox.
+
+---
+
 ### SecondaryButton
 
 Variação do componente Button. Botão estilizado, com plano de fundo transparente e borda e texto evidente em preto.
@@ -173,6 +203,28 @@ Propriedades:
 - **`JSX CloseButton`**
 
   Recebe um componente que será renderizado no lugar do botão fechar.
+
+---
+
+### ToggleSwitch
+
+ToggleSwitch (Alternador). Características:
+
+Exemplo:
+
+```jsx
+const Example = () => {
+  return <ToggleSwitch enabled />
+}
+```
+
+Propriedades:
+
+- **`Boolean enabled`**
+
+  Torna a checkbox ativa.
+
+---
 
 ## Ambiente de Desenvolvimento
 
