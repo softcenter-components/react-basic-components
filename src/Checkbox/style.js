@@ -9,6 +9,7 @@ const StyledCheckbox = styled.div`
   display: inline-grid;
   place-items: center;
   transition: all 0.1s ease-out;
+  cursor: pointer;
   > svg {
     width: 50%;
     height: 50%;
