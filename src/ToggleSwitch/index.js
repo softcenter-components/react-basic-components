@@ -1,7 +1,7 @@
 import React from 'react'
 import StyledToggleSwitch from './style'
 
-const ToggleSwitch = ({ enabled, className, ...props }) => {
+export const ToggleSwitch = ({ enabled, className, ...props }) => {
   const status = enabled ? ' enabled' : ' disabled'
 
   return (

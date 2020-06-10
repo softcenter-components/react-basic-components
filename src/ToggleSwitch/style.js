@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import colors from '../../styles/colors'
 
 const StyledToggleSwitch = styled.div`
   cursor: pointer;
@@ -18,7 +17,7 @@ const StyledToggleSwitch = styled.div`
 
   >.fill {
     border-radius: 100px;
-    background: ${colors.primary};
+    background: #0072bc;
     transition: all 0.15s ease-out;
     display: flex;
     flex-flow: row nowrap;
