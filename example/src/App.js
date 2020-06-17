@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Button, Input, Checkbox } from 'react-basic-components'
+import { Button, Input, Checkbox, LabeledInput } from 'react-basic-components'
 import { Container } from './style'
 
 const App = () => {
@@ -14,11 +14,12 @@ const App = () => {
       </p>
 
       <h3>Input</h3>
-      <Input
+      <LabeledInput
         camelCase={true}
         // error={true}
         // type="password"
         errorMsg='Mensagens de erro'
+        list={<span style={{ position: 'absolute' }}>olar</span>}
       />
 
       <h3>Button</h3>

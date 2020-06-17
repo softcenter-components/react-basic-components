@@ -36,6 +36,7 @@ export const InputBody = styled.div`
   }
   background: white;
   display: grid;
+  position: relative;
   ${(props) =>
     props.icon
       ? `

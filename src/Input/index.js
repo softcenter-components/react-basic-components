@@ -29,6 +29,7 @@ const InputComponent = forwardRef(
       onFocus = undefined,
       shouldStroke = false,
       containerRef,
+      list,
       error,
       camelCase,
       type = 'text',
@@ -46,19 +47,22 @@ const InputComponent = forwardRef(
     const iconIsClickable = onSvgClick || type === 'password'
 
     const applyCamelCase = (event) => {
-      if (event.target.value.charAt(event.target.value.length - 1) === ' ') return
+      if (event.target.value.charAt(event.target.value.length - 1) === ' ')
+        return
       const words = event.target.value.split(' ')
       if (words[words.length - 1].length < 2) return
 
       const camelCaseWords = words.map((word) => {
-        if (word.length > 1) return word.charAt(0).toUpperCase() + word.substring(1)
+        if (word.length > 1)
+          return word.charAt(0).toUpperCase() + word.substring(1)
         else return word
       })
 
       let formattedText = ''
 
       for (let i = 0; i < camelCaseWords.length; i++) {
-        if (camelCaseWords.length === 1 || i === camelCaseWords.length - 1) formattedText += camelCaseWords[i]
+        if (camelCaseWords.length === 1 || i === camelCaseWords.length - 1)
+          formattedText += camelCaseWords[i]
         else formattedText += camelCaseWords[i] + ' '
       }
 
@@ -99,6 +103,7 @@ const InputComponent = forwardRef(
             type === 'password' ? (showPassword ? 'text' : 'password') : type
           }
         />
+        {list || null}
 
         {type === 'password' ? (
           <div
