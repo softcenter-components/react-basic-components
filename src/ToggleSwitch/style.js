@@ -44,6 +44,9 @@ const StyledToggleSwitch = styled.div`
       background: #ebebeb;
     }
   }
+  &.block-actions {
+    cursor: not-allowed;
+  }
 `
 
 export default StyledToggleSwitch
