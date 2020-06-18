@@ -7,7 +7,7 @@ export const ToggleSwitch = ({ enabled, className, ...props }) => {
   return (
     <StyledToggleSwitch
       className={
-        className + status + props.blockActions ? ' block-actions' : ''
+        className + status + (props.blockActions ? ' block-actions' : '')
       }
       {...props}
     >
