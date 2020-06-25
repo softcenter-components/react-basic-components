@@ -174,6 +174,36 @@ Propriedades:
 
 ---
 
+### InputComboBox
+
+Campo de entrada com rótulo, que possui uma lista com filtragem de items, de acordo com o texto digitado no input.
+
+Exemplo:
+
+```jsx
+const Example = () => {
+  return 
+    <InputComboBox 
+      title="Países" 
+      ref={userNameRef} 
+      itemsList={["Brasil", "Japão"]} 
+      itemOnClick={(textValue) => console.log(textValue)} 
+    >
+}
+```
+
+Propriedades:
+
+- **`Array itemsList`**
+
+  Array com os items que serão listados.
+
+- **`Function itemOnClick`**
+
+  Recebe uma função que será executada ao clicar em um item da lista, e recebe como parâmetro o texto do item.
+
+---
+
 ### Modal
 
 Um modal simples, sem animação, que exibe conteúdo ao ser declarado. Características:
