@@ -27,6 +27,7 @@ const InputComponent = forwardRef(
       onChange,
       onSvgClick = undefined,
       onFocus = undefined,
+      onBlur = undefined,
       shouldStroke = false,
       containerRef,
       list,
@@ -95,6 +96,7 @@ const InputComponent = forwardRef(
           }}
           onBlur={() => {
             setIsFocused(false)
+            if (onBlur) onBlur()
           }}
           disabled={disabled}
           placeholder={placeholder}

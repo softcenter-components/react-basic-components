@@ -4,6 +4,7 @@ const StyledCheckbox = styled.div`
   background: #0072bc;
   border-radius: 5px;
   border: 2px solid #959595;
+  /* border: 2px solid red; */
   width: 30px;
   height: 30px;
   display: inline-grid;

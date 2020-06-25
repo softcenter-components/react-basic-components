@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useRef } from 'react'
 
-import { Button, Input, Checkbox, LabeledInput } from 'react-basic-components'
+import { Button, Input, Checkbox, LabeledInput, InputComboBox } from 'react-basic-components'
 import { Container } from './style'
 
 const App = () => {
+  const inputRef = useRef();
+
   return (
     <Container>
       {/* <LoadingBackdrop text='Carregando' color="#4CAD8D" /> */}
@@ -16,10 +18,14 @@ const App = () => {
       <h3>Input</h3>
       <LabeledInput
         camelCase={true}
-        // error={true}
-        // type="password"
         errorMsg='Mensagens de erro'
-        list={<span style={{ position: 'absolute' }}>olar</span>}
+      />
+
+      <InputComboBox 
+        title="Albuma coisa"
+        ref={inputRef}
+        itemsList={['item1', 'item2', 'item3']}
+        itemOnClick={e => console.log(e)} 
       />
 
       <h3>Button</h3>
