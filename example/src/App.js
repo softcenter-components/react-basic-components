@@ -24,7 +24,7 @@ const App = () => {
       <InputComboBox 
         title="Albuma coisa"
         ref={inputRef}
-        itemsList={['item1', 'item2', 'item3']}
+        itemsList={['item1', 'item2', 'item3', 'item4']}
         itemOnClick={e => console.log(e)} 
       />
 
