@@ -22,6 +22,7 @@ const App = () => {
       />
 
       <InputComboBox 
+        camelCase={true}
         title="Albuma coisa"
         ref={inputRef}
         itemsList={['item1', 'item2', 'item3', 'item4']}

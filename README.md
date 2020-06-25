@@ -135,6 +135,10 @@ Propriedades:
 
   Ícone no campo de entrada através da prop `<JSX> icon`.
 
+- **`Boolean camelCase`**
+
+  Quando essa prop for verdadeira, vai ser aplicado o Camel Case no texto do input comforme for digitado.
+
 * **`Boolean shouldStroke`**
 
   Quando essa prop for verdadeira, o ícone recebido na prop icon terá a sua cor aplicada aplicada na propriedade css `stroke` ao invés da propriedade `fill`.
