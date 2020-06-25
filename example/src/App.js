@@ -25,7 +25,8 @@ const App = () => {
         camelCase={true}
         title="Albuma coisa"
         ref={inputRef}
-        itemsList={['item1', 'item2', 'item3', 'item4']}
+        itemsList={['item1', 'item2', 'item3', 'item4', 'item3', 'item4', 'item3', 'item4']}
+        listMaxHeight="250px"
         itemOnClick={e => console.log(e)} 
       />
 

@@ -192,6 +192,7 @@ const Example = () => {
       ref={userNameRef} 
       itemsList={["Brasil", "Japão"]} 
       itemOnClick={(textValue) => console.log(textValue)} 
+      listMaxHeight="250px"
     >
 }
 ```
@@ -205,6 +206,10 @@ Propriedades:
 - **`Function itemOnClick`**
 
   Recebe uma função que será executada ao clicar em um item da lista, e recebe como parâmetro o texto do item.
+
+- **`String listMaxHeight`**
+
+  Define a altura máxima que a lista de itens irá ocupar antes de gerar o scroll vertical, caso a propriedade não seja passada o valor padrão é de 200px. 
 
 ---
 

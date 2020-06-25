@@ -16,7 +16,8 @@ export const InputComboBox = React.forwardRef((props, ref) => {
   }
 
   return (
-    <StyledInputComboBox>
+    <StyledInputComboBox 
+      listMaxHeight={props.listMaxHeight ? props.listMaxHeight : "200px"} >
       <LabeledInput 
         {...props} 
         ref={ref}
@@ -32,7 +33,7 @@ export const InputComboBox = React.forwardRef((props, ref) => {
               key={i} 
               onClick={() => {
                 ref.current.value = e
-                props.itemOnClick(e)
+                if (props.itemOnClick) props.itemOnClick(e)
               }} 
             > {e}</span> 
           )}
