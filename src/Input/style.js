@@ -11,12 +11,12 @@ export const FloatingMessage = styled.div`
 `
 
 export const Container = styled.div`
-  display: grid;
   grid-template-rows: auto auto;
   grid-template-columns: 1fr;
   width: 100%;
   box-sizing: border-box;
-  grid-row-gap: 2px;
+  display: flex;
+  flex-direction: column;
   &.default {
     grid-template-rows: auto;
   }
