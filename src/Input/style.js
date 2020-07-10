@@ -84,6 +84,7 @@ export const InputBody = styled.div`
     width: 100%;
     outline: none;
     padding: 0 25px;
+    ${props => props.icon ? `padding-right: 0;` : ''}
     border: none;
     font-size: 16px;
     color: #464646;

@@ -1,10 +1,15 @@
 import React, { useRef } from 'react'
 
-import { Button, Input, Checkbox, LabeledInput, InputComboBox } from 'react-basic-components'
+import {
+  Button,
+  Checkbox,
+  LabeledInput,
+  InputComboBox
+} from 'react-basic-components'
 import { Container } from './style'
 
 const App = () => {
-  const inputRef = useRef();
+  const inputRef = useRef()
 
   return (
     <Container>
@@ -16,18 +21,24 @@ const App = () => {
       </p>
 
       <h3>Input</h3>
-      <LabeledInput
-        camelCase={true}
-        errorMsg='Mensagens de erro'
-      />
+      <LabeledInput camelCase={true} errorMsg='Mensagens de erro' />
 
-      <InputComboBox 
+      <InputComboBox
         camelCase={true}
-        title="Albuma coisa"
+        title='Albuma coisa'
         ref={inputRef}
-        itemsList={['item1', 'item2', 'item3', 'item4', 'item3', 'item4', 'item3', 'item4']}
-        listMaxHeight="250px"
-        itemOnClick={e => console.log(e)} 
+        itemsList={[
+          'item1',
+          'item2',
+          'item3',
+          'item4',
+          'item3',
+          'item4',
+          'item3',
+          'item4'
+        ]}
+        listMaxHeight='250px'
+        itemOnClick={(e) => console.log(e)}
       />
 
       <h3>Button</h3>
