@@ -3,7 +3,6 @@ import styled from 'styled-components'
 const StyledToggleSwitch = styled.div`
   cursor: pointer;
   box-sizing: content-box;
-  transition: all 0.15s ease-out;
   border: 1px solid #b7b7b7;
   width: 50px;
   background: #ebebeb;
@@ -18,7 +17,6 @@ const StyledToggleSwitch = styled.div`
   >.fill {
     border-radius: 100px;
     background: #0072bc;
-    transition: all 0.15s ease-out;
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-end;

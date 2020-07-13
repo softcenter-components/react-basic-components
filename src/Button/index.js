@@ -2,7 +2,7 @@ import React from 'react'
 
 import { StyledButton } from './style'
 
-export const Button = ({
+const Button = ({
   children,
   className,
   disabled,
@@ -23,3 +23,5 @@ export const Button = ({
     </StyledButton>
   )
 }
+
+export { Button }
