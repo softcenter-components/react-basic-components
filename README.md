@@ -186,12 +186,12 @@ Exemplo:
 
 ```jsx
 const Example = () => {
-  return 
-    <InputComboBox 
-      title="Países" 
-      ref={userNameRef} 
-      itemsList={["Brasil", "Japão"]} 
-      itemOnClick={(textValue) => console.log(textValue)} 
+  return
+    <InputComboBox
+      title="Países"
+      ref={userNameRef}
+      itemsList={["Brasil", "Japão"]}
+      itemOnClick={(textValue) => console.log(textValue)}
       listMaxHeight="250px"
     >
 }
@@ -209,7 +209,7 @@ Propriedades:
 
 - **`String listMaxHeight`**
 
-  Define a altura máxima que a lista de itens irá ocupar antes de gerar o scroll vertical, caso a propriedade não seja passada o valor padrão é de 200px. 
+  Define a altura máxima que a lista de itens irá ocupar antes de gerar o scroll vertical, caso a propriedade não seja passada o valor padrão é de 200px.
 
 ---
 
@@ -242,6 +242,48 @@ Propriedades:
 - **`JSX CloseButton`**
 
   Recebe um componente que será renderizado no lugar do botão fechar.
+
+### SearchList
+
+Uma lista de pesquisa.
+
+Exemplo:
+
+```jsx
+const Example = () => {
+  const [showList, setShowList] = useState(false);
+  const listContainer = useRef();
+
+  return (
+    <div ref={listContainer}>
+      <SearchList onSelectItem={(item) => alert(`Item selecionado! ${item}`)}
+        setShow={setShowList}
+        data={[{value: 123, data: 'um dois tres'}]},
+        containerRef={listContainer}>
+      </SearchList>
+    </div>
+  )
+}
+```
+
+Propriedades:
+
+- **`Function onSelectItem`**
+
+  Recebe uma função que é executada quando o usuário clica em um item da lista. O primeiro argumento da função é o valor do campo.
+
+- **`Array data`**
+
+  Recebe um array de objetos que contém duas propriedades: `[{ data: 1, value: 'um' }]`. Onde value é o nome do item e data o seu dado correspondente.
+
+- **`Ref containerRef`**
+
+  Referência do elemento que contém a lista.
+
+- **`Function setShow`**
+
+  Função que irá mostrar/esconder a lista.
+
 
 ---
 
