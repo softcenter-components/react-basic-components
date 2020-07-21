@@ -1,6 +1,6 @@
 import React, { useRef, useState, forwardRef } from 'react'
 import { adaptRegExp } from '../util/formatting'
-import SearchList from '../SearchList'
+import { SearchList } from '../SearchList'
 
 const StatefulSearchList = forwardRef(
   ({ data, onSelectItem, onResetValue, Component, props }, ref) => {
