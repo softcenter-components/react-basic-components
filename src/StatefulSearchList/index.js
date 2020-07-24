@@ -80,4 +80,4 @@ const StatefulSearchList = forwardRef(
   }
 )
 
-export default StatefulSearchList
+export { StatefulSearchList }
