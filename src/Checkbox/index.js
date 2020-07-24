@@ -9,9 +9,9 @@ import { Checked } from '../assets/icons'
 
 export const Checkbox = ({ small, round, className, enabled, ...props }) => {
   const classNames = [
-    !enabled && 'disabled',
+    !enabled && 'disabled ',
     small && 'small ',
-    round && 'round',
+    round && 'round ',
     className
   ]
 
