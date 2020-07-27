@@ -9,7 +9,7 @@ const StatefulSearchList = forwardRef(
       onSelectItem = () => {},
       onResetValue = () => {},
       Component,
-      props
+      ...props
     },
     ref
   ) => {
@@ -20,11 +20,12 @@ const StatefulSearchList = forwardRef(
     const container = useRef()
     ref = ref || useRef()
 
-    const selectCity = (value) => {
+    const selectItem = (value) => {
       itemSelected.current = true
       setShowList(false)
       onSelectItem(value)
-
+      ref.current.value = value
+      setList([])
       ref.current.blur()
     }
 
@@ -40,9 +41,9 @@ const StatefulSearchList = forwardRef(
       value = adaptRegExp(value.trim())
       const regExp = new RegExp(value, 'i')
 
-      let list = data.filter((city) => {
+      let list = data.filter((item) => {
         try {
-          if (city.match(regExp)) return true
+          if (item.match(regExp)) return true
           return false
         } catch (e) {
           console.log(e)
@@ -52,9 +53,9 @@ const StatefulSearchList = forwardRef(
 
       if (list.length >= 0) {
         list = list.slice(0, 10)
-        list = list.map((city) => ({
-          value: city,
-          data: city
+        list = list.map((item) => ({
+          value: item,
+          data: item
         }))
 
         setList(list)
@@ -78,7 +79,7 @@ const StatefulSearchList = forwardRef(
             <SearchList
               containerRef={container}
               setShow={setShowListValue}
-              onSelectItem={selectCity}
+              onSelectItem={selectItem}
               data={list}
             />
           )
