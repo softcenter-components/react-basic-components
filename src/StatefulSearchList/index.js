@@ -3,7 +3,16 @@ import { adaptRegExp } from '../util/formatting'
 import { SearchList } from '../SearchList'
 
 const StatefulSearchList = forwardRef(
-  ({ data, onSelectItem, onResetValue, Component, props }, ref) => {
+  (
+    {
+      data,
+      onSelectItem = () => {},
+      onResetValue = () => {},
+      Component,
+      props
+    },
+    ref
+  ) => {
     const [showList, setShowList] = useState(false)
     const [list, setList] = useState([])
 
