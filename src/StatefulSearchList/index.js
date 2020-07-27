@@ -38,7 +38,7 @@ const StatefulSearchList = forwardRef(
     }
 
     const filterList = (value) => {
-      value = adaptRegExp(value.trim())
+      value = '^' + adaptRegExp(value.trim())
       const regExp = new RegExp(value, 'i')
 
       let list = data.filter((item) => {

@@ -4,7 +4,8 @@ import {
   Button,
   Checkbox,
   LabeledInput,
-  InputComboBox
+  InputComboBox,
+  StatefulSearchList
 } from 'react-basic-components'
 import { Container } from './style'
 
@@ -37,8 +38,21 @@ const App = () => {
           'item3',
           'item4'
         ]}
+        
         listMaxHeight='250px'
         itemOnClick={(e) => console.log(e)}
+      />
+
+      <StatefulSearchList
+        Component={LabeledInput}
+        placeholder="São Paulo - SP"
+        ref={inputRef}
+        data={[
+          'item1',
+          'item2',
+          'item3',
+          'item4',
+        ]} 
       />
 
       <h3>Button</h3>
