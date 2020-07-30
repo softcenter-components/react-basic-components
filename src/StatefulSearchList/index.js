@@ -51,7 +51,7 @@ const StatefulSearchList = forwardRef(
         }
       })
 
-      if (list.length >= 0 && list.length > 10) {
+      if (list.length >= 0) {
         list = list.slice(0, 10)
         setList(list)
       }
