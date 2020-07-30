@@ -5,7 +5,7 @@ import { SearchList } from '../SearchList'
 const StatefulSearchList = forwardRef(
   (
     {
-      data,
+      data = [],
       onSelectItem = () => {},
       onResetValue = () => {},
       Component,
@@ -29,7 +29,7 @@ const StatefulSearchList = forwardRef(
       ref.current.blur()
     }
 
-    const setShowListValue = (value) => {
+    const onListShowChange = (value) => {
       setShowList(value)
       if (!itemSelected.current) {
         ref.current.value = ''
@@ -43,7 +43,7 @@ const StatefulSearchList = forwardRef(
 
       let list = data.filter((item) => {
         try {
-          if (item.match(regExp)) return true
+          if (item.value.match(regExp)) return true
           return false
         } catch (e) {
           console.log(e)
@@ -51,13 +51,8 @@ const StatefulSearchList = forwardRef(
         }
       })
 
-      if (list.length >= 0) {
+      if (list.length >= 0 && list.length > 10) {
         list = list.slice(0, 10)
-        list = list.map((item) => ({
-          value: item,
-          data: item
-        }))
-
         setList(list)
       }
     }
@@ -78,7 +73,7 @@ const StatefulSearchList = forwardRef(
           showList && (
             <SearchList
               containerRef={container}
-              setShow={setShowListValue}
+              setShow={onListShowChange}
               onSelectItem={selectItem}
               data={list}
             />
