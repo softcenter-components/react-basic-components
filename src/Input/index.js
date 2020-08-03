@@ -32,6 +32,7 @@ const InputComponent = forwardRef(
       containerRef,
       list,
       error,
+      showErrorIcon = true,
       camelCase,
       type = 'text',
       ...props
@@ -114,7 +115,7 @@ const InputComponent = forwardRef(
           >
             {showPassword ? <EyeOff /> : <Eye />}
           </div>
-        ) : error ? (
+        ) : error && showErrorIcon ? (
           <div className='icon-container'>
             <AlertCircle />
           </div>

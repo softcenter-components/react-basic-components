@@ -24,7 +24,7 @@ const App = () => {
       </p>
 
       <h3>Input</h3>
-      <LabeledInput camelCase={true} errorMsg='Mensagens de erro' />
+      <LabeledInput camelCase={true} error={true} showErrorIcon={false}  errorMsg='Mensagens de erro' />
 
       <InputComboBox
         camelCase={true}
