@@ -9,6 +9,8 @@ import {
 } from 'react-basic-components'
 import { Container } from './style'
 
+import { Eye } from '../src/icons';
+ 
 const App = () => {
   const inputRef = useRef()
 
@@ -56,7 +58,9 @@ const App = () => {
       />
 
       <h3>Button</h3>
-      <Button>Clique</Button>
+      <Button 
+        children={<> <Eye /> <p>ois</p> </>}
+      />
 
       <h3>Disabled Button</h3>
       <Button disabled={true}>Clique</Button>

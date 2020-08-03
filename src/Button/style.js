@@ -1,6 +1,16 @@
 import styled from 'styled-components'
 
 export const StyledButton = styled.button`
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: min-content;
+  justify-content: center;
+  grid-column-gap: 10px;
   color: #fff;
   background: #0072bc;
   height: 100%;
@@ -13,6 +23,10 @@ export const StyledButton = styled.button`
   outline: none;
   box-sizing: border-box;
   padding: 6% 2%;
+
+  > svg {
+    width: 20px;
+  }
 
   &:active {
     background: #0009;
