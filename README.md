@@ -284,6 +284,39 @@ Propriedades:
 
   Função que irá mostrar/esconder a lista.
 
+---
+
+### SearchList
+
+Uma lista de pesquisa.
+
+Exemplo:
+
+```jsx
+const Example = () => {
+  const [showList, setShowList] = useState(false);
+  const listContainer = useRef();
+
+  return (
+    <div ref={listContainer}>
+      <StatefulSearchList onSelectItem={(item) => alert(`Item selecionado! ${item}`)}
+        data={[{value: 123, data: 'um dois tres'}]},
+        Component={listContainer}>
+      </StatefulSearchList>
+    </div>
+  )
+}
+```
+
+Propriedades:
+
+- **`Function onResetValue`**
+
+  Função que é disparada quando o valor selecionado é resetado.
+
+- **`Function onResetValue`**
+
+  Função que é disparada quando o valor selecionado é resetado.
 
 ---
 

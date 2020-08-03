@@ -49,7 +49,7 @@ const SearchList = ({
           : data.map((e) => ({
               value: e.value,
               onClick: () => {
-                onSelectItem(e.data)
+                onSelectItem(e.data, e.value)
                 setShow(false)
               }
             }))
