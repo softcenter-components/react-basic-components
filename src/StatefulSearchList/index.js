@@ -8,6 +8,8 @@ const StatefulSearchList = forwardRef(
       data = [],
       onSelectItem = () => {},
       onResetValue = () => {},
+      autoFilter = true,
+      onChange,
       Component,
       ...props
     },
@@ -20,10 +22,10 @@ const StatefulSearchList = forwardRef(
     const container = useRef()
     ref = ref || useRef()
 
-    const selectItem = (value) => {
+    const selectItem = (data, value) => {
       itemSelected.current = true
       setShowList(false)
-      onSelectItem(value)
+      onSelectItem(data, value)
       ref.current.value = value
       setList([])
       ref.current.blur()
@@ -62,9 +64,10 @@ const StatefulSearchList = forwardRef(
         containerRef={container}
         ref={ref}
         onChange={(e) => {
+          if (onChange) onChange(e)
           if (!showList) setShowList(true)
           itemSelected.current = false
-          filterList(e.target.value)
+          if (autoFilter) filterList(e.target.value)
         }}
         onFocus={() => {
           if (!showList) setShowList(true)
@@ -75,7 +78,7 @@ const StatefulSearchList = forwardRef(
               containerRef={container}
               setShow={onListShowChange}
               onSelectItem={selectItem}
-              data={list}
+              data={autoFilter ? list : data}
             />
           )
         }
