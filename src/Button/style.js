@@ -9,7 +9,9 @@ export const StyledButton = styled.button`
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: min-content;
+  white-space: nowrap;
   justify-content: center;
+  align-items: center;
   grid-column-gap: 10px;
   color: #fff;
   background: #0072bc;

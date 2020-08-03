@@ -58,9 +58,9 @@ const App = () => {
       />
 
       <h3>Button</h3>
-      <Button 
-        children={<> <Eye /> <p>ois</p> </>}
-      />
+      <Button>
+        <Eye /> <p>Clique aqui</p>
+      </Button>
 
       <h3>Disabled Button</h3>
       <Button disabled={true}>Clique</Button>
