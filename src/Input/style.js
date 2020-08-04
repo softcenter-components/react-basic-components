@@ -5,7 +5,7 @@ export const FloatingMessage = styled.div`
   background: transparent;
   width: 100%;
   font-family: Montserrat;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   color: #c50000;
   position: absolute;
