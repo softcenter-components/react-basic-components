@@ -81,6 +81,7 @@ const InputComponent = forwardRef(
           ${type === 'password' ? 'password' : ''} 
           ${isFocused ? 'focused' : ''}
         `}
+        showErrorIcon={showErrorIcon}
         icon={showIcon}
         onClick={() => ref.current.focus()}
         iconIsClickable={iconIsClickable}

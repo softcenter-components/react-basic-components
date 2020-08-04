@@ -41,7 +41,7 @@ export const InputBody = styled.div`
   display: grid;
   position: relative;
   ${(props) =>
-    props.icon
+    props.icon && props.showErrorIcon
       ? `
     grid-auto-flow: column;
     grid-template-columns: 1fr 45px;
