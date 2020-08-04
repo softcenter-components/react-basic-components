@@ -9,7 +9,7 @@ export const Input = forwardRef(({ errorMsg, ...props }, ref) => {
       <InputComponent {...props} ref={ref} />
       {props.error && errorMsg && (
         <FloatingMessage className='floating-message'>
-          {errorMsg}
+          *{errorMsg}
         </FloatingMessage>
       )}
     </Container>

@@ -8,6 +8,8 @@ export const FloatingMessage = styled.div`
   font-size: 14px;
   font-weight: 500;
   color: #c50000;
+  position: absolute;
+  top: 100%;
 `
 
 export const Container = styled.div`
@@ -20,6 +22,7 @@ export const Container = styled.div`
   &.default {
     grid-template-rows: auto;
   }
+  position: relative;
 `
 
 export const InputBody = styled.div`
