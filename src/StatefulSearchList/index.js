@@ -11,6 +11,7 @@ const StatefulSearchList = forwardRef(
       autoFilter = true,
       onChange,
       Component,
+      icon,
       ...props
     },
     ref
@@ -63,6 +64,7 @@ const StatefulSearchList = forwardRef(
       <Component
         containerRef={container}
         ref={ref}
+        icon={icon}
         onChange={(e) => {
           if (onChange) onChange(e)
           if (!showList) setShowList(true)
