@@ -19,7 +19,7 @@ const StyledSearchList = styled.div`
     white-space: nowrap;
     width: 100%;
     position: relative;
-    color: #c0c0c0;
+    color: #898989;
     font-size: 1.65rem;
     font-weight: 500;
     display: grid;
@@ -51,7 +51,7 @@ const StyledSearchList = styled.div`
     > .line {
       place-self: center;
       width: 85%;
-      background: #e8e8e8;
+      background: #c0c0c0;
       height: 1px;
       position: absolute;
       bottom: 0;

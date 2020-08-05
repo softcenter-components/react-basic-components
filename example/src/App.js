@@ -3,9 +3,11 @@ import React, { useRef } from 'react'
 import {
   Button,
   Checkbox,
+  Input,
   LabeledInput,
   InputComboBox,
-  StatefulSearchList
+  StatefulSearchList,
+  SearchList
 } from 'react-basic-components'
 import { Container } from './style'
 
@@ -46,14 +48,13 @@ const App = () => {
       />
 
       <StatefulSearchList
-        Component={LabeledInput}
+        Component={Input}
         placeholder="São Paulo - SP"
         ref={inputRef}
         data={[
-          'item1',
-          'item2',
-          'item3',
-          'item4',
+          { value: 'item1' },
+          { value: 'item1' },
+          { value: 'item1' }
         ]} 
       />
 
