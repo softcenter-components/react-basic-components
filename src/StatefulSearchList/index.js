@@ -71,7 +71,8 @@ const StatefulSearchList = forwardRef(
           itemSelected.current = false
           if (autoFilter) filterList(e.target.value)
         }}
-        onFocus={() => {
+        onFocus={(e) => {
+          if (autoFilter) filterList(e.target.value)
           if (!showList) setShowList(true)
         }}
         list={

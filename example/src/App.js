@@ -28,33 +28,26 @@ const App = () => {
       <h3>Input</h3>
       <LabeledInput camelCase={true} error={true} showErrorIcon={false}  errorMsg='Mensagens de erro' />
 
-      <InputComboBox
-        camelCase={true}
-        title='Albuma coisa'
-        ref={inputRef}
-        itemsList={[
-          'item1',
-          'item2',
-          'item3',
-          'item4',
-          'item3',
-          'item4',
-          'item3',
-          'item4'
-        ]}
-        
-        listMaxHeight='250px'
-        itemOnClick={(e) => console.log(e)}
-      />
-
       <StatefulSearchList
         Component={Input}
         placeholder="São Paulo - SP"
         ref={inputRef}
         data={[
           { value: 'item1' },
-          { value: 'item1' },
-          { value: 'item1' }
+          { value: 'item2' },
+          { value: 'item3' },
+          { value: 'item4' },
+          { value: 'item5' },
+          { value: 'item6' },
+          { value: 'item7' },
+          { value: 'item8' },
+          { value: 'item9' },
+          { value: 'item10' },
+          { value: 'item11' },
+          { value: 'item12' },
+          { value: 'item13' },
+          { value: 'item14' },
+          { value: 'item15' },
         ]} 
       />
 
