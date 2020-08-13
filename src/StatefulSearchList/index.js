@@ -29,7 +29,7 @@ const StatefulSearchList = forwardRef(
 
     useEffect(() => {
       setLoading(false)
-    }, data)
+    }, [data])
 
     const selectItem = (data, value) => {
       itemSelected.current = true
