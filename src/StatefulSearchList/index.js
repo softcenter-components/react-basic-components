@@ -33,7 +33,7 @@ const StatefulSearchList = forwardRef(
 
     useEffect(() => {
       setLoading(false)
-      searchListRef.current.scrollTop = 0
+      if (searchListRef.current) searchListRef.current.scrollTop = 0
     }, [data, list])
 
     const selectItem = (data, value) => {
