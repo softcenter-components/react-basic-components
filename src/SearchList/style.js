@@ -28,6 +28,7 @@ const StyledSearchList = styled.div`
     justify-content: flex-start;
     padding: 0 8%;
     cursor: pointer;
+    box-sizing: border-box;
 
     &:hover {
       background: #f2f2f2;
@@ -59,6 +60,9 @@ const StyledSearchList = styled.div`
     &:last-child > .line {
       display: none;
     }
+  }
+  > .center {
+    justify-content: center;
   }
 `
 

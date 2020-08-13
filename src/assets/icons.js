@@ -17,6 +17,43 @@ export const AlertCircle = () => (
     <path d='M13,13H11V7H13M13,17H11V15H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z' />
   </svg>
 )
+export const SearchListLoadingIcon = () => (
+  <svg viewBox='0 0 100 100' preserveAspectRatio='xMidYMid'>
+    <circle
+      cx='50'
+      cy='50'
+      r='30'
+      stroke='#ffffff00'
+      strokeWidth='10'
+      fill='none'
+    />
+    <circle
+      cx='50'
+      cy='50'
+      r='30'
+      stroke='#c0c0c0'
+      strokeWidth='8'
+      strokeLinecap='round'
+      fill='none'
+    >
+      <animateTransform
+        attributeName='transform'
+        type='rotate'
+        repeatCount='indefinite'
+        dur='1.01010101010101s'
+        values='0 50 50;180 50 50;720 50 50'
+        keyTimes='0;0.5;1'
+      />
+      <animate
+        attributeName='stroke-dasharray'
+        repeatCount='indefinite'
+        dur='1.01010101010101s'
+        values='18.84955592153876 169.64600329384882;94.2477796076938 94.24777960769377;18.84955592153876 169.64600329384882'
+        keyTimes='0;0.5;1'
+      />
+    </circle>
+  </svg>
+)
 
 export const Eye = () => (
   <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'>

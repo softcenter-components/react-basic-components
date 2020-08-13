@@ -1,29 +1,39 @@
 import React, { useEffect, forwardRef } from 'react'
 
 import StyledSearchList from './style'
+import { SearchListLoadingIcon } from '../assets/icons'
 
-const SearchListComponent = forwardRef(({ items = [], unclickable }, ref) => {
-  return (
-    <StyledSearchList ref={ref}>
-      {items.map((e, i) => (
-        <div
-          key={i}
-          className={`item ${unclickable ? 'disable' : ''}`}
-          onClick={unclickable ? undefined : e.onClick}
-        >
-          <span>{e.value}</span>
-          <div className='line' />
-        </div>
-      ))}
-    </StyledSearchList>
-  )
-})
+const SearchListComponent = forwardRef(
+  ({ items = [], unclickable, loading, onScroll }, ref) => {
+    return (
+      <StyledSearchList ref={ref} onScroll={onScroll}>
+        {items.map((e, i) => (
+          <div
+            key={i}
+            className={`item ${unclickable ? 'disable' : ''}`}
+            onClick={unclickable ? undefined : e.onClick}
+          >
+            <span>{e.value}</span>
+            <div className='line' />
+          </div>
+        ))}
+        {loading && (
+          <span className='item center'>
+            <SearchListLoadingIcon />
+          </span>
+        )}
+      </StyledSearchList>
+    )
+  }
+)
 
 const SearchList = ({
   onSelectItem = () => {},
   setShow,
   data = [],
-  containerRef
+  containerRef,
+  onScroll,
+  loading
 }) => {
   const noData = data.length === 0
 
@@ -43,6 +53,7 @@ const SearchList = ({
 
   return (
     <SearchListComponent
+      onScroll={onScroll}
       items={
         noData
           ? [{ value: 'Nenhum resultado encontrado' }]
@@ -54,6 +65,7 @@ const SearchList = ({
               }
             }))
       }
+      loading={loading}
       unclickable={noData}
     />
   )

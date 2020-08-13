@@ -1,4 +1,4 @@
-import React, { useRef, useState, forwardRef } from 'react'
+import React, { useRef, useState, forwardRef, useEffect } from 'react'
 import { adaptRegExp } from '../util/formatting'
 import { SearchList } from '../SearchList'
 
@@ -12,16 +12,24 @@ const StatefulSearchList = forwardRef(
       onChange,
       Component,
       icon,
+      onThresholdReached,
       ...props
     },
     ref
   ) => {
     const [showList, setShowList] = useState(false)
     const [list, setList] = useState([])
+    const [loading, setLoading] = useState(false)
 
     const itemSelected = useRef(false)
     const container = useRef()
+    const lastScrollSize = useRef(0)
+    const timesThresholdReached = useRef(1)
     ref = ref || useRef()
+
+    useEffect(() => {
+      setLoading(false)
+    }, data)
 
     const selectItem = (data, value) => {
       itemSelected.current = true
@@ -32,7 +40,7 @@ const StatefulSearchList = forwardRef(
       ref.current.blur()
     }
 
-    const onListShowChange = (value) => {
+    const onSetShowChange = (value) => {
       setShowList(value)
       if (!itemSelected.current) {
         ref.current.value = ''
@@ -42,11 +50,11 @@ const StatefulSearchList = forwardRef(
 
     const filterList = (value) => {
       value = '^' + adaptRegExp(value.trim())
-      const regExp = new RegExp(value, 'i')
+      const matchItemRegExp = new RegExp(value, 'i')
 
       let list = data.filter((item) => {
         try {
-          if (item.value.match(regExp)) return true
+          if (item.value.match(matchItemRegExp)) return true
           return false
         } catch (e) {
           console.log(e)
@@ -55,8 +63,38 @@ const StatefulSearchList = forwardRef(
       })
 
       if (list.length >= 0) {
-        list = list.slice(0, 10)
+        list = list.slice(0, 10 * timesThresholdReached.current)
         setList(list)
+        setLoading(false)
+      }
+    }
+
+    const onScroll = (event) => {
+      event.persist()
+      event.preventDefault()
+      const scrollPosition = event.target.scrollTop
+      const scrollSize = event.target.scrollHeight
+      const scrollContainerSize = event.target.offsetHeight
+
+      const bottomPosition = scrollSize - scrollContainerSize
+      console.log('---')
+      console.log('scrollPosition', scrollPosition + 20)
+      console.log('bottomPosition', bottomPosition)
+      console.log(scrollPosition + 20 >= bottomPosition)
+      console.log('scrollSize', scrollSize)
+      console.log('lastScrollSize.current', lastScrollSize.current)
+
+      if (
+        scrollPosition + 20 >= bottomPosition &&
+        lastScrollSize.current !== scrollSize
+      ) {
+        lastScrollSize.current = scrollSize
+        ++timesThresholdReached.current
+        console.log(timesThresholdReached.current)
+        if (typeof onThresholdReached === 'function')
+          onThresholdReached(timesThresholdReached.current)
+        setLoading(true)
+        if (autoFilter) filterList(ref.current.value)
       }
     }
 
@@ -70,6 +108,7 @@ const StatefulSearchList = forwardRef(
           if (!showList) setShowList(true)
           itemSelected.current = false
           if (autoFilter) filterList(e.target.value)
+          timesThresholdReached.current = 1
         }}
         onFocus={(e) => {
           if (autoFilter) filterList('')
@@ -79,9 +118,11 @@ const StatefulSearchList = forwardRef(
           showList && (
             <SearchList
               containerRef={container}
-              setShow={onListShowChange}
+              setShow={onSetShowChange}
               onSelectItem={selectItem}
               data={autoFilter ? list : data}
+              onScroll={onScroll}
+              loading={loading}
             />
           )
         }
