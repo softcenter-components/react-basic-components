@@ -98,8 +98,7 @@ const StatefulSearchList = forwardRef(
 
       if (
         scrollPosition + 20 >= bottomPosition &&
-        scrollSizeChanged &&
-        dataChanged
+        (dataChanged ? scrollSizeChanged && dataChanged : true)
       ) {
         lastScrollSize.current = scrollSize
         ++timesThresholdReached.current
