@@ -13,6 +13,7 @@ const StatefulSearchList = forwardRef(
       Component,
       icon,
       onThresholdReached,
+      reachedMaxThreshold = false,
       ...props
     },
     ref
@@ -86,7 +87,8 @@ const StatefulSearchList = forwardRef(
 
       if (
         scrollPosition + 20 >= bottomPosition &&
-        lastScrollSize.current !== scrollSize
+        lastScrollSize.current !== scrollSize &&
+        !reachedMaxThreshold
       ) {
         lastScrollSize.current = scrollSize
         ++timesThresholdReached.current
