@@ -27,6 +27,7 @@ const StatefulSearchList = forwardRef(
     const lastDataLength = useRef(0)
     const lastSearchCriteria = useRef('')
     const searchListRef = useRef('')
+    const resetListPosition = useRef(false)
     const timesThresholdReached = useRef(1)
 
     ref = ref || useRef()
@@ -34,6 +35,13 @@ const StatefulSearchList = forwardRef(
     useEffect(() => {
       setLoading(false)
     }, [data, list])
+
+    useEffect(() => {
+      if (!loading && resetListPosition.current) {
+        resetListPosition.current = false
+        searchListRef.current.scrollTop = 0
+      }
+    }, [loading])
 
     const selectItem = (data, value) => {
       itemSelected.current = true
@@ -117,7 +125,7 @@ const StatefulSearchList = forwardRef(
           itemSelected.current = false
           if (autoFilter) filterList(e.target.value)
           timesThresholdReached.current = 1
-          searchListRef.current.scrollTop = 0
+          resetListPosition.current = true
         }}
         onFocus={(e) => {
           if (autoFilter) filterList('')
