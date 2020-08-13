@@ -13,7 +13,6 @@ const StatefulSearchList = forwardRef(
       Component,
       icon,
       onThresholdReached,
-      maxThresholdReached = false,
       ...props
     },
     ref
@@ -25,12 +24,15 @@ const StatefulSearchList = forwardRef(
     const itemSelected = useRef(false)
     const container = useRef()
     const lastScrollSize = useRef(0)
+    const lastDataLength = useRef(0)
+    const lastSearchCriteria = useRef('')
     const timesThresholdReached = useRef(1)
+
     ref = ref || useRef()
 
     useEffect(() => {
       setLoading(false)
-    }, [data])
+    }, [data, list])
 
     const selectItem = (data, value) => {
       itemSelected.current = true
@@ -71,30 +73,33 @@ const StatefulSearchList = forwardRef(
     }
 
     const onScroll = (event) => {
-      event.persist()
-      event.preventDefault()
       const scrollPosition = event.target.scrollTop
       const scrollSize = event.target.scrollHeight
       const scrollContainerSize = event.target.offsetHeight
 
       const bottomPosition = scrollSize - scrollContainerSize
-      console.log('---')
-      console.log('scrollPosition', scrollPosition + 20)
-      console.log('bottomPosition', bottomPosition)
-      console.log(scrollPosition + 20 >= bottomPosition)
-      console.log('scrollSize', scrollSize)
-      console.log('lastScrollSize.current', lastScrollSize.current)
+
+      const currentDataLength = autoFilter ? list.length : data.length
+
+      const dataChanged =
+        lastDataLength.current !== currentDataLength ||
+        lastSearchCriteria.current !== ref.current.value
 
       if (
         scrollPosition + 20 >= bottomPosition &&
         lastScrollSize.current !== scrollSize &&
-        !maxThresholdReached
+        dataChanged
       ) {
         lastScrollSize.current = scrollSize
         ++timesThresholdReached.current
+        lastSearchCriteria.current = ref.current.value
+        lastDataLength.current = currentDataLength
+
         console.log(timesThresholdReached.current)
+
         if (typeof onThresholdReached === 'function')
           onThresholdReached(timesThresholdReached.current)
+
         setLoading(true)
         if (autoFilter) filterList(ref.current.value)
       }
