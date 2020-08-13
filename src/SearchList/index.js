@@ -1,4 +1,4 @@
-import React, { useEffect, forwardRef } from 'react'
+import React, { useEffect, forwardRef, useRef } from 'react'
 
 import StyledSearchList from './style'
 import { SearchListLoadingIcon } from '../assets/icons'
@@ -27,48 +27,55 @@ const SearchListComponent = forwardRef(
   }
 )
 
-const SearchList = ({
-  onSelectItem = () => {},
-  setShow,
-  data = [],
-  containerRef,
-  onScroll,
-  loading
-}) => {
-  const noData = data.length === 0
+const SearchList = forwardRef(
+  (
+    {
+      onSelectItem = () => {},
+      setShow,
+      data = [],
+      containerRef,
+      onScroll,
+      loading
+    },
+    ref
+  ) => {
+    if (!ref) ref = useRef()
+    const noData = data.length === 0
 
-  useEffect(() => {
-    const handler = (e) => {
-      if (containerRef.current && !containerRef.current.contains(e.target)) {
-        setShow(false)
+    useEffect(() => {
+      const handler = (e) => {
+        if (containerRef.current && !containerRef.current.contains(e.target)) {
+          setShow(false)
+        }
       }
-    }
 
-    document.addEventListener('click', handler, false)
+      document.addEventListener('click', handler, false)
 
-    return () => {
-      document.removeEventListener('click', handler, false)
-    }
-  }, [containerRef, setShow])
-
-  return (
-    <SearchListComponent
-      onScroll={onScroll}
-      items={
-        noData
-          ? [{ value: 'Nenhum resultado encontrado' }]
-          : data.map((e) => ({
-              value: e.value,
-              onClick: () => {
-                onSelectItem(e.data, e.value)
-                setShow(false)
-              }
-            }))
+      return () => {
+        document.removeEventListener('click', handler, false)
       }
-      loading={loading}
-      unclickable={noData}
-    />
-  )
-}
+    }, [containerRef, setShow])
+
+    return (
+      <SearchListComponent
+        onScroll={onScroll}
+        items={
+          noData
+            ? [{ value: 'Nenhum resultado encontrado' }]
+            : data.map((e) => ({
+                value: e.value,
+                onClick: () => {
+                  onSelectItem(e.data, e.value)
+                  setShow(false)
+                }
+              }))
+        }
+        loading={loading}
+        unclickable={noData}
+        ref={ref}
+      />
+    )
+  }
+)
 
 export { SearchList }

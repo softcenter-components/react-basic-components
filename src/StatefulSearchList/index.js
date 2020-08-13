@@ -26,6 +26,7 @@ const StatefulSearchList = forwardRef(
     const lastScrollSize = useRef(0)
     const lastDataLength = useRef(0)
     const lastSearchCriteria = useRef('')
+    const searchListRef = useRef('')
     const timesThresholdReached = useRef(1)
 
     ref = ref || useRef()
@@ -85,17 +86,17 @@ const StatefulSearchList = forwardRef(
         lastDataLength.current !== currentDataLength ||
         lastSearchCriteria.current !== ref.current.value
 
+      const scrollSizeChanged = lastScrollSize.current !== scrollSize
+
       if (
         scrollPosition + 20 >= bottomPosition &&
-        lastScrollSize.current !== scrollSize &&
+        scrollSizeChanged &&
         dataChanged
       ) {
         lastScrollSize.current = scrollSize
         ++timesThresholdReached.current
         lastSearchCriteria.current = ref.current.value
         lastDataLength.current = currentDataLength
-
-        console.log(timesThresholdReached.current)
 
         if (typeof onThresholdReached === 'function')
           onThresholdReached(timesThresholdReached.current)
@@ -116,6 +117,7 @@ const StatefulSearchList = forwardRef(
           itemSelected.current = false
           if (autoFilter) filterList(e.target.value)
           timesThresholdReached.current = 1
+          searchListRef.current.scrollTop = 0
         }}
         onFocus={(e) => {
           if (autoFilter) filterList('')
@@ -130,6 +132,7 @@ const StatefulSearchList = forwardRef(
               data={autoFilter ? list : data}
               onScroll={onScroll}
               loading={loading}
+              ref={searchListRef}
             />
           )
         }
