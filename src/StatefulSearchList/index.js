@@ -33,7 +33,6 @@ const StatefulSearchList = forwardRef(
 
     useEffect(() => {
       setLoading(false)
-      if (searchListRef.current) searchListRef.current.scrollTop = 0
     }, [data, list])
 
     const selectItem = (data, value) => {
@@ -118,6 +117,7 @@ const StatefulSearchList = forwardRef(
           itemSelected.current = false
           if (autoFilter) filterList(e.target.value)
           timesThresholdReached.current = 1
+          searchListRef.current.scrollTop = 0
         }}
         onFocus={(e) => {
           if (autoFilter) filterList('')
