@@ -268,55 +268,83 @@ const Example = () => {
 
 Propriedades:
 
+- **`Function onResetValue`**
+
+  Função que é disparada quando o valor selecionado é resetado.
+
 - **`Function onSelectItem`**
 
-  Recebe uma função que é executada quando o usuário clica em um item da lista. O primeiro argumento da função é o valor do campo.
-
-- **`Array data`**
-
-  Recebe um array de objetos que contém duas propriedades: `[{ data: 1, value: 'um' }]`. Onde value é o nome do item e data o seu dado correspondente.
-
-- **`Ref containerRef`**
-
-  Referência do elemento que contém a lista.
+  Função que é disparada quando um item da lista é selecionado.
 
 - **`Function setShow`**
 
-  Função que irá mostrar/esconder a lista.
+  Função responsável por alterar o estado de exibição da lista.
+
+- **`Ref containerRef`**
+
+  Referência do elemento que contém a lista. Esse elemento deve conter a propriedade css `position:absolute`.
+
+- **`Array data`**
+
+  Array de dados que representam as opções da lista. Cada array é um objeto do seguinte formato: `{data: '', value: ''}`.
+  Onde `value` é o nome do item na lista e `data` contém dados específicos àquele valor.
+
+- **`Boolean loading`**
+
+  Exibe um spinner no final da lista.
 
 ---
 
-### SearchList
+### StatefulSearchList
 
-Uma lista de pesquisa.
+Uma lista de pesquisa com controle de estado interno.
 
 Exemplo:
 
 ```jsx
 const Example = () => {
-  const [showList, setShowList] = useState(false);
-  const listContainer = useRef();
 
   return (
-    <div ref={listContainer}>
       <StatefulSearchList onSelectItem={(item) => alert(`Item selecionado! ${item}`)}
         data={[{value: 123, data: 'um dois tres'}]},
-        Component={listContainer}>
+        Component={Input}>
       </StatefulSearchList>
-    </div>
   )
 }
 ```
 
 Propriedades:
 
+Todas as propriedades passadas para o StatefulSearchList, além das listadas abaixo, irão ser redirecionadas para o componente passado em Component.
+
+- **`Component`**
+
+  Componente cujo conterá a lista.
+
 - **`Function onResetValue`**
 
   Função que é disparada quando o valor selecionado é resetado.
 
-- **`Function onResetValue`**
+- **`Function onSelectItem`**
 
-  Função que é disparada quando o valor selecionado é resetado.
+  Função que é disparada quando um item da lista é selecionado.
+
+- **`Array data`**
+
+  Array de dados que representam as opções da lista. Cada array é um objeto do seguinte formato: `{data: '', value: ''}`.
+  Onde `value` é o nome do item na lista e `data` contém dados específicos àquele valor.
+
+- **`Boolean autoFilter`**
+  Opção de filtragem automático. Quando `true`, o próprio componente irá realizar a filtragem dos dados fornecidos na propriedade `data`.
+
+- **`Function onChange`**
+  Função que é passada para o componente da propriedade `Component`.
+
+- **`Function onThresholdReached`**
+  Função que é disparada quando o usuário scrolla até o limite máximo da lista.
+
+- **`Boolean itemIsSelected`**
+  Boolean que deve ser passada como `true` quando o componente é inicializado com um valor selecionado.
 
 ---
 

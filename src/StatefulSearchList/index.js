@@ -13,6 +13,7 @@ const StatefulSearchList = forwardRef(
       Component,
       icon,
       onThresholdReached,
+      itemIsSelected = false,
       ...props
     },
     ref
@@ -21,13 +22,11 @@ const StatefulSearchList = forwardRef(
     const [list, setList] = useState([])
     const [loading, setLoading] = useState(false)
 
-    const itemSelected = useRef(false)
+    const itemSelected = useRef(itemIsSelected)
     const container = useRef()
-    const lastScrollSize = useRef(0)
     const lastDataLength = useRef(0)
     const lastSearchCriteria = useRef('')
     const searchListRef = useRef('')
-    const resetListPosition = useRef(false)
     const timesThresholdReached = useRef(1)
 
     ref = ref || useRef()
@@ -35,13 +34,6 @@ const StatefulSearchList = forwardRef(
     useEffect(() => {
       setLoading(false)
     }, [data, list])
-
-    useEffect(() => {
-      if (!loading && resetListPosition.current) {
-        resetListPosition.current = false
-        searchListRef.current.scrollTop = 0
-      }
-    }, [loading])
 
     const selectItem = (data, value) => {
       itemSelected.current = true
@@ -54,6 +46,7 @@ const StatefulSearchList = forwardRef(
 
     const onSetShowChange = (value) => {
       setShowList(value)
+
       if (!itemSelected.current) {
         ref.current.value = ''
         onResetValue(value)
@@ -94,13 +87,7 @@ const StatefulSearchList = forwardRef(
         lastDataLength.current !== currentDataLength ||
         lastSearchCriteria.current !== ref.current.value
 
-      const scrollSizeChanged = lastScrollSize.current !== scrollSize
-
-      if (
-        scrollPosition + 20 >= bottomPosition &&
-        (dataChanged ? scrollSizeChanged && dataChanged : true)
-      ) {
-        lastScrollSize.current = scrollSize
+      if (scrollPosition + 20 >= bottomPosition && dataChanged) {
         ++timesThresholdReached.current
         lastSearchCriteria.current = ref.current.value
         lastDataLength.current = currentDataLength
@@ -124,7 +111,7 @@ const StatefulSearchList = forwardRef(
           itemSelected.current = false
           if (autoFilter) filterList(e.target.value)
           timesThresholdReached.current = 1
-          resetListPosition.current = true
+          searchListRef.current.scrollTop = 0
         }}
         onFocus={(e) => {
           if (autoFilter) filterList('')
