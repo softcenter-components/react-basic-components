@@ -8,8 +8,6 @@ export const FloatingMessage = styled.div`
   font-size: 13px;
   font-weight: 500;
   color: #c50000;
-  position: absolute;
-  top: 100%;
 `
 
 export const Container = styled.div`
@@ -87,7 +85,7 @@ export const InputBody = styled.div`
     width: 100%;
     outline: none;
     padding: 0 25px;
-    ${props => props.icon ? `padding-right: 0;` : ''}
+    ${(props) => (props.icon ? `padding-right: 0;` : '')}
     border: none;
     font-size: 16px;
     color: #464646;
