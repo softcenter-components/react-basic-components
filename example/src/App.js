@@ -5,9 +5,7 @@ import {
   Checkbox,
   Input,
   LabeledInput,
-  InputComboBox,
-  StatefulSearchList,
-  SearchList
+  StatefulSearchList
 } from 'react-basic-components'
 import { Container } from './style'
 

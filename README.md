@@ -176,40 +176,6 @@ Propriedades:
 
   Altera o tamanho da fonte do campo de entrada.
 
----
-
-### InputComboBox
-
-Campo de entrada com rótulo, que possui uma lista com filtragem de items, de acordo com o texto digitado no input.
-
-Exemplo:
-
-```jsx
-const Example = () => {
-  return
-    <InputComboBox
-      title="Países"
-      ref={userNameRef}
-      itemsList={["Brasil", "Japão"]}
-      itemOnClick={(textValue) => console.log(textValue)}
-      listMaxHeight="250px"
-    >
-}
-```
-
-Propriedades:
-
-- **`Array itemsList`**
-
-  Array com os items que serão listados.
-
-- **`Function itemOnClick`**
-
-  Recebe uma função que será executada ao clicar em um item da lista, e recebe como parâmetro o texto do item.
-
-- **`String listMaxHeight`**
-
-  Define a altura máxima que a lista de itens irá ocupar antes de gerar o scroll vertical, caso a propriedade não seja passada o valor padrão é de 200px.
 
 ---
 
