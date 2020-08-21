@@ -11,6 +11,7 @@ const StatefulSearchList = forwardRef(
       autoFilter = true,
       onChange,
       Component,
+      className,
       icon,
       onThresholdReached,
       itemIsSelected = false,
@@ -120,6 +121,7 @@ const StatefulSearchList = forwardRef(
         list={
           showList && (
             <SearchList
+              className={className}
               containerRef={container}
               setShow={onSetShowChange}
               onSelectItem={selectItem}
