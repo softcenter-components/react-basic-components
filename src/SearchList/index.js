@@ -4,13 +4,13 @@ import StyledSearchList from './style'
 import { SearchListLoadingIcon } from '../assets/icons'
 
 const SearchListComponent = forwardRef(
-  ({ items = [], unclickable, loading, onScroll }, ref) => {
+  ({ items = [], unclickable, className, loading, onScroll }, ref) => {
     return (
       <StyledSearchList ref={ref} onScroll={onScroll}>
         {items.map((e, i) => (
           <div
             key={i}
-            className={`item ${unclickable ? 'disable' : ''}`}
+            className={`item ${unclickable ? 'disable' : ''} ${className}`}
             onClick={unclickable ? undefined : e.onClick}
           >
             <span>{e.value}</span>
@@ -35,7 +35,8 @@ const SearchList = forwardRef(
       data = [],
       containerRef,
       onScroll,
-      loading
+      loading,
+      className
     },
     ref
   ) => {
@@ -58,6 +59,7 @@ const SearchList = forwardRef(
 
     return (
       <SearchListComponent
+        className={className}
         onScroll={onScroll}
         items={
           noData
