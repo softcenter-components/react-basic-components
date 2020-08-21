@@ -6,11 +6,11 @@ import { SearchListLoadingIcon } from '../assets/icons'
 const SearchListComponent = forwardRef(
   ({ items = [], unclickable, className, loading, onScroll }, ref) => {
     return (
-      <StyledSearchList ref={ref} onScroll={onScroll}>
+      <StyledSearchList className={className} ref={ref} onScroll={onScroll}>
         {items.map((e, i) => (
           <div
             key={i}
-            className={`item ${unclickable ? 'disable' : ''} ${className}`}
+            className={`item ${unclickable ? 'disable' : ''}`}
             onClick={unclickable ? undefined : e.onClick}
           >
             <span>{e.value}</span>
