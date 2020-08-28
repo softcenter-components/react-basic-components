@@ -44,16 +44,25 @@ const SearchList = forwardRef(
     const noData = data.length === 0
 
     useEffect(() => {
-      const handler = (e) => {
+      const clickHandler = (e) => {
         if (containerRef.current && !containerRef.current.contains(e.target)) {
           setShow(false)
         }
       }
+      const focusHandler = (e) => {
+        console.log('focus', e.target)
+        if (containerRef.current && !containerRef.current.contains(e.target)) {
+          console.log('focus!', e.target)
+          setShow(false)
+        }
+      }
 
-      document.addEventListener('click', handler, false)
+      document.addEventListener('click', clickHandler, false)
+      document.addEventListener('focus', focusHandler, false)
 
       return () => {
-        document.removeEventListener('click', handler, false)
+        document.removeEventListener('click', clickHandler, false)
+        document.removeEventListener('focus', focusHandler, false)
       }
     }, [containerRef, setShow])
 

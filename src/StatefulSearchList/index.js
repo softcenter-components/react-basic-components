@@ -102,25 +102,28 @@ const StatefulSearchList = forwardRef(
       }
     }
 
+    const handleChange = (e) => {
+      if (onChange) onChange(e)
+      if (!showList) setShowList(true)
+      itemSelected.current = false
+      if (autoFilter) filterList(e.target.value)
+      timesThresholdReached.current = 1
+      if (searchListRef.current) searchListRef.current.scrollTop = 0
+    }
+
+    const handleFocus = (e) => {
+      if (autoFilter) filterList('')
+      if (!showList) setShowList(true)
+      if (typeof onFocus === 'function') onFocus(e)
+    }
+
     return (
       <Component
         containerRef={container}
         ref={ref}
         icon={icon}
-        onChange={(e) => {
-          if (onChange) onChange(e)
-          if (!showList) setShowList(true)
-          itemSelected.current = false
-          if (autoFilter) filterList(e.target.value)
-          timesThresholdReached.current = 1
-          console.log('searchListRef.current', searchListRef.current)
-          if (searchListRef.current) searchListRef.current.scrollTop = 0
-        }}
-        onFocus={(e) => {
-          if (autoFilter) filterList('')
-          if (!showList) setShowList(true)
-          if (typeof onFocus === 'function') onFocus(e)
-        }}
+        onChange={handleChange}
+        onFocus={handleFocus}
         list={
           showList && (
             <SearchList
