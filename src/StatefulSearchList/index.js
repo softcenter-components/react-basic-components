@@ -13,6 +13,7 @@ const StatefulSearchList = forwardRef(
       Component,
       className,
       icon,
+      onFocus,
       onThresholdReached,
       itemIsSelected = false,
       ...props
@@ -27,7 +28,7 @@ const StatefulSearchList = forwardRef(
     const container = useRef()
     const lastDataLength = useRef(0)
     const lastSearchCriteria = useRef('')
-    const searchListRef = useRef('')
+    const searchListRef = useRef(null)
     const timesThresholdReached = useRef(1)
 
     ref = ref || useRef()
@@ -112,11 +113,13 @@ const StatefulSearchList = forwardRef(
           itemSelected.current = false
           if (autoFilter) filterList(e.target.value)
           timesThresholdReached.current = 1
-          searchListRef.current.scrollTop = 0
+          console.log('searchListRef.current', searchListRef.current)
+          if (searchListRef.current) searchListRef.current.scrollTop = 0
         }}
         onFocus={(e) => {
           if (autoFilter) filterList('')
           if (!showList) setShowList(true)
+          if (typeof onFocus === 'function') onFocus(e)
         }}
         list={
           showList && (
