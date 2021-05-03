@@ -295,10 +295,15 @@ Todas as propriedades passadas para o StatefulSearchList, além das listadas aba
 
   Função que é disparada quando um item da lista é selecionado.
 
+
 - **`Array data`**
 
   Array de dados que representam as opções da lista. Cada array é um objeto do seguinte formato: `{data: '', value: ''}`.
   Onde `value` é o nome do item na lista e `data` contém dados específicos àquele valor.
+
+- **`Boolean addDescriptionToItems`**
+
+  Quando a variável for verdadeira, será possível passar uma propriedade adicional ao array de objetos da prop **data**. Essa propriedade adicional se chama `descpt` e permite que cada item da lista renderizada pelo componente tenha uma pequena descrição abaixo de seu nome. Exemplo: `<StatefulSearchList data={[data: '5fhas08lklja23jn230', value: 'Tomador 1', descpt: 'São Paulo - SP' ]}/>`
 
 - **`Boolean autoFilter`**
   Opção de filtragem automático. Quando `true`, o próprio componente irá realizar a filtragem dos dados fornecidos na propriedade `data`.

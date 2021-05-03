@@ -15,6 +15,7 @@ const StatefulSearchList = forwardRef(
       icon,
       onFocus,
       onThresholdReached,
+      addDescriptionToItems,
       itemIsSelected = false,
       ...props
     },
@@ -135,6 +136,7 @@ const StatefulSearchList = forwardRef(
               onScroll={onScroll}
               loading={loading}
               ref={searchListRef}
+              addDescriptionToItems={addDescriptionToItems}
             />
           )
         }

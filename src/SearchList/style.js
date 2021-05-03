@@ -14,6 +14,10 @@ const StyledSearchList = styled.div`
   overflow: hidden auto;
   z-index: 20;
 
+  &.description-mode {
+    grid-auto-rows: 52px;
+  }
+
   > .item {
     word-break: keep-all;
     white-space: nowrap;
@@ -47,6 +51,10 @@ const StyledSearchList = styled.div`
       overflow: hidden;
       text-overflow: ellipsis;
       font-size: 12px;
+
+      &.descpt {
+        font-size: 10px;
+      }
     }
 
     > .line {

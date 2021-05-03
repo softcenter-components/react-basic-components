@@ -4,19 +4,42 @@ import StyledSearchList from './style'
 import { SearchListLoadingIcon } from '../assets/icons'
 
 const SearchListComponent = forwardRef(
-  ({ items = [], unclickable, className, loading, onScroll }, ref) => {
+  (
+    {
+      items = [],
+      unclickable,
+      className,
+      loading,
+      onScroll,
+      addDescriptionToItems
+    },
+    ref
+  ) => {
     return (
-      <StyledSearchList className={className} ref={ref} onScroll={onScroll}>
-        {items.map((e, i) => (
-          <div
-            key={i}
-            className={`item ${unclickable ? 'disable' : ''}`}
-            onClick={unclickable ? undefined : e.onClick}
-          >
-            <span>{e.value}</span>
-            <div className='line' />
-          </div>
-        ))}
+      <StyledSearchList
+        className={`${className} ${
+          addDescriptionToItems ? 'description-mode' : ''
+        }`}
+        ref={ref}
+        onScroll={onScroll}
+      >
+        {items.map((e, i) => {
+          const classNames = `item 
+          ${unclickable ? 'disable' : ''} 
+          ${e.descpt ? 'descpt' : ''}`
+
+          return (
+            <div
+              key={i}
+              className={classNames}
+              onClick={unclickable ? undefined : e.onClick}
+            >
+              <span>{e.value}</span>
+              {e.descpt ? <span>{e.descpt}</span> : null}
+              <div className='line' />
+            </div>
+          )
+        })}
         {loading && (
           <span className='item center'>
             <SearchListLoadingIcon />
@@ -36,7 +59,8 @@ const SearchList = forwardRef(
       containerRef,
       onScroll,
       loading,
-      className
+      className,
+      addDescriptionToItems
     },
     ref
   ) => {
@@ -50,9 +74,7 @@ const SearchList = forwardRef(
         }
       }
       const focusHandler = (e) => {
-        console.log('focus', e.target)
         if (containerRef.current && !containerRef.current.contains(e.target)) {
-          console.log('focus!', e.target)
           setShow(false)
         }
       }
@@ -70,11 +92,13 @@ const SearchList = forwardRef(
       <SearchListComponent
         className={className}
         onScroll={onScroll}
+        addDescriptionToItems={addDescriptionToItems}
         items={
           noData
             ? [{ value: 'Nenhum resultado encontrado' }]
             : data.map((e) => ({
                 value: e.value,
+                descpt: e.descpt,
                 onClick: () => {
                   onSelectItem(e.data, e.value)
                   setShow(false)
