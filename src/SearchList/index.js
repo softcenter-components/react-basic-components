@@ -35,7 +35,7 @@ const SearchListComponent = forwardRef(
               onClick={unclickable ? undefined : e.onClick}
             >
               <span>{e.value}</span>
-              {e.descpt ? <span>{e.descpt}</span> : null}
+              {e.descpt ? <span className='descpt'>{e.descpt}</span> : null}
               <div className='line' />
             </div>
           )
